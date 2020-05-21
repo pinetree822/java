@@ -1,5 +1,5 @@
-GitRepositoriesView.GitDirectories=C\:\\_xampp\\htdocs\\java\\.git;
-GitRepositoriesView.GitDirectories.relative=C\:\\_xampp\\htdocs\\java\\.git;
+GitRepositoriesView.GitDirectories=C\:\\_xampp\\htdocs\\java\\.git;C\:\\_xampp\\htdocs\\.git;
+GitRepositoriesView.GitDirectories.relative=C\:\\_xampp\\htdocs\\java\\.git;C\:\\_xampp\\htdocs\\.git;
 RepositorySearchDialogDeepSearch=false
 RepositorySearchDialogSearchPath=C\:\\_xampp\\htdocs\\java
 eclipse.preferences.version=1
