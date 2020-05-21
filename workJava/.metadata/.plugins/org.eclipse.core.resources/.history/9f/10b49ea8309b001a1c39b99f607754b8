@@ -1,0 +1,10 @@
+package net.tis.day21;
+
+public class Two {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("±èÅÂÈÆ 3:59 3:52");
+	}
+
+}
