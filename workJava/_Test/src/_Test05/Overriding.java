@@ -1,8 +1,14 @@
 package _Test05;
 
-// D:\_xampp\htdocs\_source\book_명품JAVA프로그래밍(개정4판)_학습자용[20190220]\예제 및 그림 소스\5장\chap05-ex06\src
-
-
 public class Overriding {
-
-}
+	public static void main(String[] args) {
+		
+		Weapon weapon;
+		weapon = new Weapon();
+		System.out.println("기본 무기의 살상 능력은 " + weapon.fire());
+		
+		weapon = new Cannon();
+		System.out.println("대포의 살상 능력은 " + weapon.fire());
+		
+	}
+}// class
