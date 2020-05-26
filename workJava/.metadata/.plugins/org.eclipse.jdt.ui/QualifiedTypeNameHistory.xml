@@ -16,4 +16,5 @@
 <fullyQualifiedTypeName name="java.math.BigInteger"/>
 <fullyQualifiedTypeName name="java.text.Format"/>
 <fullyQualifiedTypeName name="java.text.Format.Field"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
 </qualifiedTypeNameHistroy>
