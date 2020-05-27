@@ -14,6 +14,10 @@ public class Home11 {
 		 int su3=6;
 		 int temp=0; //ºóÄÅ¿ªÇÒ
 
+//		 if(su1>temp) { temp = su1; }
+//		 if(su2>temp) { temp = su2; }
+//		 if(su3>temp) { temp = su3; }
+		 
 		 temp = sort1(su1,temp);
 		 temp = sort1(su2,temp);
 		 temp = sort1(su3,temp);

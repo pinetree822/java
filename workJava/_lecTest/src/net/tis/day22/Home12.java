@@ -4,24 +4,51 @@ public class Home12 {
 
 	public static void main(String[] args) {
 
-		int a=1;
-		int b=2;
-		int c=3;
+		int a=2;
+		int b=3;
+		int c=1;
 		
-		 System.out.printf("%d %d %d", 
-				 sort1(sort1(a,b),c),// 최소값
-				 (
-						 sort2(
-								 sort2(
-										 sort1(a,b),
-										 sort1(b,c)
-								),
-								sort1(a,c)
-						)
-				 ), // 중간값
-				 sort2(sort2(a,b),c)// 최대값  
-		);
+		
+		
 
+		//////////////////////////////////////////////////////////////////////////////////////
+		// Type1 - QuickSort
+		// a가 제일 작은 경우
+		if(a<b && a<c) {
+			
+			if(b<c) { System.out.println(a + " " + b + " " + c); }
+			else { System.out.println(a + " " + b + " " + c); }
+		// b가 제일 작은 경우
+		} else if( b<c ) {
+
+			if(a<c) { System.out.println(b + " " + a + " " + c); }
+			else { System.out.println(b + " " + c + " " + a); }	
+		// c가 제일 작은 경우
+		} else {
+
+			if(a<b) { System.out.println(c + " " + a + " " + b); }
+			else { System.out.println(c + " " + b + " " + a); }
+		}
+		
+		
+		
+		//////////////////////////////////////////////////////////////////////////////////////
+		// Type2 - QuickSort
+//		 System.out.printf("%d %d %d", 
+//				 sort1(sort1(a,b),c),// 최소값
+//				 (
+//						 sort2(
+//								 sort2(
+//										 sort1(a,b),
+//										 sort1(b,c)
+//								),
+//								sort1(a,c)
+//						)
+//				 ), // 중간값
+//				 sort2(sort2(a,b),c)// 최대값  
+//		);
+
+			//////////////////////////////////////////////////////////////////////////////////////
 	}// main
 //1 -1 0
 	static int sort1(int a, int b) {// 최소값

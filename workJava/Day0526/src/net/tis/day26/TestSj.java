@@ -26,6 +26,8 @@ public class TestSj {
 		double avg=0.0, hap=0.0;
 		String message = "";
 		String input = "";
+		char grade='F';
+		
 		
 		Scanner scn = new Scanner(System.in);
 
