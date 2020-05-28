@@ -1,9 +1,35 @@
 package _Test08;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-
-
-// D:\_source\book_명품JAVA프로그래밍(개정4판)_학습자용[20190220]\예제 및 그림 소스\8장\chap08-ex01\src
 public class FileReaderEx {
-
+	
+	public static void main(String[] args) {
+		
+		InputStreamReader in = null;
+		FileInputStream fin = null;
+		
+		
+		try {
+			fin = new FileInputStream("c:/Temp/hangul.txt");
+//			fin = new FileInputStream("c:\\Temp\\hangul.txt");
+//			in = new InputStreamReader(fin, "MS949");// 올바른 문자 집합 지정
+//			in = new InputStreamReader(fin);// 올바른 문자 집합 지정
+			in = new InputStreamReader(fin, "UTF-8");// 올바른 문자 집합 지정
+			int c;
+			
+			System.out.println("인코딩 문자 집합은 " + in.getEncoding());
+			while((c=in.read()) != -1) System.out.print((char) c);
+			
+			in.close();
+			fin.close();
+			
+		} catch (IOException e) {
+			System.out.println("입출력 오류");
+		}
+		
+	}
+	
 }
