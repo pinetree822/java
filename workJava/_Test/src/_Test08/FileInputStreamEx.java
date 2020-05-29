@@ -1,4 +1,4 @@
-package net.tis.day22;
+package _Test08;
 
 import java.io.FileInputStream;
 
