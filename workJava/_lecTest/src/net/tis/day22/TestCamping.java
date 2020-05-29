@@ -5,14 +5,7 @@ import java.util.Scanner;
 
 public class TestCamping {
 
-	static String roomChk(boolean chk)
-	{
-		return chk==false?"빈방":"예약";
-	}
 
-	
-// 
-	
 //	호텔의 전체 방 리스트 정보
 //	방 : [ 0 ] 빈방
 //	방 : [ 1 ] 빈방
@@ -20,9 +13,61 @@ public class TestCamping {
 //	방 : [ 3 ] 빈방
 //	방 : [ 4 ] 빈방
 //
-//	호텔 방 번호를 정수로 입력해주세요. >>> 1
-//	2020년 5월 29일 토요일 오후1시간 53분 3초 
+//	1) 예약<입실> 2)퇴실 3) 보기 4) 전체 9)종료
+//	>>> 1
+//
+//	몇번 방에서 예약하시겠습니까? >>> 
+//	1
+//	2020년 5월 29일 토요일 오후9시간 45분 46초 
 //	호텔 : 1번 방 예약완료 되었습니다.
+//	-----------------------------------------
+//	1) 예약<입실> 2)퇴실 3) 보기 4) 전체 9)종료
+//	>>> 2
+//
+//	1) 예약<입실> 2)퇴실 3) 보기 4) 전체 9)종료
+//	>>> 1
+//
+//	몇번 방에서 예약하시겠습니까? >>> 
+//	1
+//	>>> 예약된 방입니다.
+//	-----------------------------------------
+//	몇번 방에서 퇴실하시겠습니까? >>> 
+//	1
+//	2020년 5월 29일 토요일 오후9시간 46분 13초 
+//	호텔 : 1번 방 퇴실 되었습니다.
+//	-----------------------------------------
+//	1) 예약<입실> 2)퇴실 3) 보기 4) 전체 9)종료
+//	>>> 2
+//
+//	몇번 방에서 퇴실하시겠습니까? >>> 
+//	2
+//	>>> 빈 방입니다.
+//	-----------------------------------------
+//	1) 예약<입실> 2)퇴실 3) 보기 4) 전체 9)종료
+//	>>> 2
+//
+//	몇번 방에서 퇴실하시겠습니까? >>> 
+//	2
+//	>>> 빈 방입니다.
+//	-----------------------------------------
+//	1) 예약<입실> 2)퇴실 3) 보기 4) 전체 9)종료
+//	>>> 4
+//	호텔의 전체 방 리스트 정보
+//	방 : [ 1 ] 예약
+//	방 : [ 2 ] 예약
+//	방 : [ 3 ] 예약
+//	방 : [ 4 ] 빈방
+//	방 : [ 5 ] 예약
+//	-----------------------------------------
+	
+//	1) 예약<입실> 2)퇴실 3) 보기 4) 전체 9)종료
+//	>>> 9
+//	호텔 : 예약 프로그램을 종료합니다.
+	
+	static String roomChk(boolean chk)
+	{
+		return chk==false?"빈방":"예약";
+	}//
 	
 	
 	public static void main(String[] args) {
@@ -31,29 +76,25 @@ public class TestCamping {
 		String weeks[] = {"일","월","화","수","목","금","토"};
 		String apPm[] = {"오전","오후"};
 
-//		 빈방 리스트 보여주기
-//		 예약할 방번호
-//		 방 예약 - 변경
-//		 전체방 리스트
-		
-//		캠핑장 예약상태 확인// 리스트
-//		1.예약 2.퇴실 3.보기 9.종료
-		
+
+//		예약<입실>
+//		퇴실<빈방 만들기>
+//		보기<해당방 보기>
+//		전체<방 리스트>
+//		종료<프로그램 종료>
+
 //		1) 예약<입실> 2)퇴실 3) 보기 4) 전체 9)종료
-//		리스트출력
-//		빈방이면 예약가능
-//		빈방이 아니면 퇴실 가능
 
 		
 		// 입력 핸들링
 		Scanner scn = new Scanner(System.in);// 입력장치
-		int inNum = 0;// 서비스 번호
-		int matchNum = 0;// 방검색(보기,예약)번호
-        Calendar today;
+		int inNum = 0;								// 서비스 번호
+		int matchNum = 0;							// 방(예약,보기<검색>,퇴실)번호
+        Calendar today;// 예약/퇴실/등록날짜
 		
 		while(true)
 		{
-			switch (inNum) {// "예약번호"
+			switch (inNum) {// "프로그램 서비스번호"
 			
 				////////////////////////////////case1 예약 ////////////////////////////////
 				case 1:// 예약
@@ -97,7 +138,12 @@ public class TestCamping {
 					System.out.println("호텔 : " + (matchNum+1) + "번 방 예약완료 되었습니다.");
 					System.out.println("-----------------------------------------");
 
-
+					// 전체 방 현황 체크리스트
+					System.out.println("호텔의 전체 방 리스트 정보");
+					for(int i=0; i<hotel.length; i++)
+						System.out.println( "방 : [ " + (i+1) + " ] " + roomChk(hotel[i]) );
+					System.out.println("-----------------------------------------");
+					
 					break;
 	
 					
@@ -127,9 +173,6 @@ public class TestCamping {
 						// 해당방 인덱스 업데이트 하기
 						hotel[matchNum] = false;
 					}
-					
-					// 해당방 인덱스 업데이트 하기
-
 
 			        // 기본적으로 현재날짜와 시간으로 설정된다.
 			        today = Calendar.getInstance();
@@ -144,9 +187,18 @@ public class TestCamping {
 			        				today.get(Calendar.MINUTE) + "분 " + 					// (0~59)
 			        				today.get(Calendar.SECOND) + "초 " 					// (0~59)
 			        );
+			        
 					// 예약 완료 메시지 보여주기
 					System.out.println("호텔 : " + (matchNum+1) + "번 방 퇴실 되었습니다.");
 					System.out.println("-----------------------------------------");
+
+
+					// 전체 방 현황 체크리스트
+					System.out.println("호텔의 전체 방 리스트 정보");
+					for(int i=0; i<hotel.length; i++)
+						System.out.println( "방 : [ " + (i+1) + " ] " + roomChk(hotel[i]) );
+					System.out.println("-----------------------------------------");
+					
 					break;
 
 				////////////////////////////////case3 보기 ////////////////////////////////
@@ -169,6 +221,14 @@ public class TestCamping {
 						System.out.println("-----------------------------------------");
 					}
 					System.out.println();
+
+					
+					// 전체 방 현황 체크리스트
+					System.out.println("호텔의 전체 방 리스트 정보");
+					for(int i=0; i<hotel.length; i++)
+						System.out.println( "방 : [ " + (i+1) + " ] " + roomChk(hotel[i]) );
+					System.out.println("-----------------------------------------");
+
 					break;
 
 				////////////////////////////////case4 전체리스트 ////////////////////////////////
@@ -178,6 +238,7 @@ public class TestCamping {
 					System.out.println("호텔의 전체 방 리스트 정보");
 					for(int i=0; i<hotel.length; i++)
 						System.out.println( "방 : [ " + (i+1) + " ] " + roomChk(hotel[i]) );
+					System.out.println("-----------------------------------------");
 					
 					break;
 
@@ -187,35 +248,27 @@ public class TestCamping {
 					System.exit(0);
 					break;
 
-				////////////////////////////////default ////////////////////////////////
-				default:
-//					System.out.println("호텔의 전체 방 리스트 정보");
-//					for(int i=0; i<hotel.length; i++)
-//						System.out.println( "방 : [ " + i + " ] " + roomChk(hotel[i]) );
+					////////////////////////////////case9 종료 ////////////////////////////////
+				default :
+					// 전체 방 현황 체크리스트
+					System.out.println();
+					System.out.println("호텔의 전체 방 리스트 정보");
+					for(int i=0; i<hotel.length; i++)
+						System.out.println( "방 : [ " + (i+1) + " ] " + roomChk(hotel[i]) );
+					System.out.println("-----------------------------------------");
 					break;
 			}// switch
 
-			// 전체 방 현황 체크리스트
-			System.out.println();
-			System.out.println("호텔의 전체 방 리스트 정보");
-			for(int i=0; i<hotel.length; i++)
-				System.out.println( "방 : [ " + (i+1) + " ] " + roomChk(hotel[i]) );
 
 			System.out.println();
 			System.out.println("1) 예약<입실> 2)퇴실 3) 보기 4) 전체 9)종료");
 			
-			// 서비스 번호 입력받기
+			// 프로그램 서비스번호 입력받기
 			System.out.print(">>> ");
 			inNum = scn.nextInt();
 			
 		}// while
-		
 
-//		// 전체 방 리스트 보여주기
-//		for(int i=0; i<hotel.length; i++)
-//			System.out.println( "방 : [ " + i + " ] " + roomChk(hotel[i]) );
-
-		// 방 입력 다시 하기/// 퇴실두 가능하게
 		
 	}// main
 	
