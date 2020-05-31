@@ -8,3 +8,5 @@ workJava/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
 workJava/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
 workJava/.metadata/.log
 *.resources
+/workJava/nbproject/private/
+/workJava/build/
