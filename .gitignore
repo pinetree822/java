@@ -10,3 +10,9 @@ workJava/.metadata/.log
 *.resources
 /workJava/nbproject/private/
 /workJava/build/
+/workJava/dist/
+/workJava/_lecTest/nbproject/private/
+/workJava/_Test/nbproject/private/
+/workJava/_TestAWT/nbproject/private/
+/workJava/_TestSwing/nbproject/private/
+/workJava/_javaDoc/nbproject/private/
