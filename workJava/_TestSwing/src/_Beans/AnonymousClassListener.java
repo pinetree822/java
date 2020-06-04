@@ -5,16 +5,18 @@
  */
 package _Beans;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author kim
  */
-public class NullContainerEx extends javax.swing.JFrame {
+public class AnonymousClassListener extends javax.swing.JFrame {
 
     /**
-     * Creates new form NullContainerEx
+     * Creates new form AnonymousClassListener
      */
-    public NullContainerEx() {
+    public AnonymousClassListener() {
         initComponents();
     }
 
@@ -27,38 +29,34 @@ public class NullContainerEx extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Null Container Sample");
-        setPreferredSize(new java.awt.Dimension(400, 300));
-        setSize(new java.awt.Dimension(300, 200));
+        setTitle("Action 이벤트 리스너 작성");
+        setMinimumSize(new java.awt.Dimension(350, 150));
+        setSize(new java.awt.Dimension(350, 150));
+        getContentPane().setLayout(new java.awt.FlowLayout());
 
-        jPanel1.setLayout(null);
-
-        jLabel1.setText("Hello, Press Buttons!");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(130, 50, 200, 20);
-
-        jButton1.setText("jButton1");
-        jPanel1.add(jButton1);
-        jButton1.setBounds(80, 100, 109, 23);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jButton1.setText("Action");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JButton b = (JButton) evt.getSource();
+        if(b.getText().equals("Action")) b.setText("액션");
+        else b.setText("Action");
+        
+        // AnonymousClassListener의 멤버나 JFrame의 멤버를 호출
+        setTitle(b.getText());
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -77,27 +75,25 @@ public class NullContainerEx extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NullContainerEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnonymousClassListener.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NullContainerEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnonymousClassListener.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NullContainerEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnonymousClassListener.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NullContainerEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnonymousClassListener.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NullContainerEx().setVisible(true);
+                new AnonymousClassListener().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
