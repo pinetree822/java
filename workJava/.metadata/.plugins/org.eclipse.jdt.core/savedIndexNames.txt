@@ -1,6 +1,0 @@
-INDEX VERSION 1.131+D:\_xampp\htdocs\java\workJava\.metadata\.plugins\org.eclipse.jdt.core
-2789371757.index
-3275817142.index
-700727067.index
-2936786272.index
-1297053517.index
