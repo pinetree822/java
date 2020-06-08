@@ -42,8 +42,6 @@ public class NullContainerEx extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(130, 50, 200, 20);
 
-        
-        
         jButton1.setText("jButton1");
         jPanel1.add(jButton1);
         jButton1.setBounds(80, 100, 109, 23);
