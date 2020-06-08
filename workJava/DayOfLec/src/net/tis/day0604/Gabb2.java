@@ -3,21 +3,10 @@ package net.tis.day0604;
 import java.util.Scanner;
 
 
-public class Gabb {
+public class Gabb2 {
 	// 배열금지, 생성자x, 필드금지x, 메소드분리x
 	// try~catch각자응용, 연산처리, 메세지출력, equals()
-	
-	
 	public static void main(String[] args) {
-
-		System.out.println("[ Bllizard Entertainment Development Office ]");
-		System.out.println();
-//		Gabb gg=new Gabb();// gg오브젝트=gg객체=gg인스턴스
-		new Gabb();// 객체이름이 없으면 익명의 개체=anonymous
-	}// main()
-	
-	
-	public Gabb() {
 		
 		int com=0, my=0;// com은 컴이생성된 변수, my는 내가 내는 변수,
 		int win=0, lose=0, Gtotal=0;//이긴,진,총
@@ -29,6 +18,7 @@ public class Gabb {
 		while(flag)
 		{
 			// 안내문
+			System.out.println("[ Bllizard Entertainment Development Office ]");
 			System.out.println("1.가위 2.바위 3.보 9.종료 >>> ");
 			try {
 				// 가위.바위.보 내기
@@ -69,9 +59,7 @@ public class Gabb {
 			} else {
 				if(my==9) flag=false;
 				else {
-					System.out.println("------------------");
 					System.out.println("1부터 3까지 입력해주세요.");
-					System.out.println("------------------");
 					continue;
 				}
 			}// else
@@ -84,7 +72,7 @@ public class Gabb {
 		System.out.println("총="+Gtotal+"회 승="+win+" 패="+lose+" 무승부="+(Gtotal-(win+lose)));
 		
 		
-	}// Gabb()
+	}// main
 	
 }// class Gabb
 
