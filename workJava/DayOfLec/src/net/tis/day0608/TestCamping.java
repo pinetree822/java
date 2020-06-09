@@ -5,7 +5,16 @@ import java.util.Scanner;
 public class TestCamping {
 
 	private boolean camp[]= new boolean[5];// 방리스트
+<<<<<<< HEAD
 	
+=======
+
+	/*
+	 * @param int ho 
+	 * @return null
+	 * 
+	 */
+>>>>>>> 0e8d39980b06fb92d8afffb8a76d5c7c6d89c805
 	// 입실
 	public void input(int ho){ //입실메소드괄호안의 매개인자 int,리턴값 X
 		if(camp[ho-1]==true)
@@ -26,6 +35,13 @@ public class TestCamping {
 		}
 	}// output()
 
+<<<<<<< HEAD
+=======
+	/*
+	 * @param null
+	 * @return void
+	 */
+>>>>>>> 0e8d39980b06fb92d8afffb8a76d5c7c6d89c805
 	// 전체 캠프 현황 체크리스트
 	public void map()
 	{
@@ -45,7 +61,18 @@ public class TestCamping {
 	
 	// msg = msg: 입실,퇴실, max = 방개수 최대값?
 	public int write(String msg, int max) {// 리턴값, 매개인자 2개
+<<<<<<< HEAD
 
+=======
+/*
+ * @param msg
+ * @param max
+ * @return int
+ * 캠프장 번호받기
+ * 
+ * 
+ */
+>>>>>>> 0e8d39980b06fb92d8afffb8a76d5c7c6d89c805
 		Scanner scn = new Scanner(System.in);
 		int a=0;
 		do {

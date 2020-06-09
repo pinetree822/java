@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;NullContainerEx_Bean에서작성시소스가재정리가되는이유1.txt&apos; to &apos;_TestSwing/src/_Beans&apos;&#x0D;&#x0A;- Original project: &apos;_TestSwing&apos;&#x0D;&#x0A;- Destination element: &apos;_TestSwing/src/_Beans&apos;&#x0D;&#x0A;- Original element: &apos;NullContainerEx_Bean에서작성시소스가재정리가되는이유1.txt&apos;" description="Copy file" destination="/src&lt;_Beans" element1="src/_Beans/NullContainerEx_Bean에서작성시소스가재정리가되는이유1.txt" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1591023359488" units="0" version="1.0"/>
+</session>
