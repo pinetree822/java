@@ -2,7 +2,7 @@ package _Test03;
 
 public class foreachEx {
 
-	enum Week { 월, 화, 수, 목, 금, 토, 일}
+	enum Week { 월, 화, 수, 목, 금, 토, 일};
 //	* enum 형 객체를 만들어서 값 가져오기
 //	ex) Week.월
 //	* valueOf() 메소드를 이용해서 가져오기

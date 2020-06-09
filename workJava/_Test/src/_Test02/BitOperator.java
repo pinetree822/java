@@ -75,12 +75,12 @@ public class BitOperator {
 		System.out.println("test3333 = " +Integer.numberOfLeadingZeros(c));//test3333 = 27
 	}
 	
-	static String bytesToBinaryString(Byte b)
+	static String bytesToBinaryString(byte c)
 	{
 		StringBuilder builder = new StringBuilder();
 		
 		for(int i = 0; i < 8; i++) {
-			builder.append( ((0x80 >>> i) & b) == 0 ? '0' : '1'   );
+			builder.append( ((0x80 >>> i) & c) == 0 ? '0' : '1'   );
 		}
 		return builder.toString();
 	}
