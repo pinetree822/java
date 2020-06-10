@@ -1,4 +1,4 @@
-package net.tis.lecTest;
+package net.tis.day0610;
 
 import java.util.Scanner;
 
