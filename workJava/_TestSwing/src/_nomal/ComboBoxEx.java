@@ -6,7 +6,6 @@ import java.awt.FlowLayout;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 
-import net.tis.lecTest.TestCamping;
 
 public class ComboBoxEx extends JFrame{
 
