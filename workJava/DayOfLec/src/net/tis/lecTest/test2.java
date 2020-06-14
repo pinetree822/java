@@ -11,5 +11,11 @@ public class test2 {
 		for(int i=0; i<test.length;i++)
 			System.out.println(test[i]);
 		
+//		
+//		
+//		double avg=78.9;
+//		int a = (int)avg;
+//		String data = "1200";
+//		int b = Integer.parseInt(data);
 	}
 }
