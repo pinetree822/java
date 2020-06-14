@@ -6,64 +6,43 @@
 package _Beans;
 
 import java.awt.Color;
+import static java.awt.Frame.NORMAL;
 import java.awt.Graphics;
+import static java.awt.image.ImageObserver.HEIGHT;
+import static java.awt.image.ImageObserver.WIDTH;
 import javax.swing.JPanel;
 
 /**
  *
-<<<<<<< HEAD
- * @author user
-=======
  * @author kim
->>>>>>> 4bb86cb40ad4efa6ccb9ac24da10dbde36645991
  */
-public class GraphicsDrawOvalEx extends javax.swing.JFrame {
+public class GraphicsDrawArcEx extends javax.swing.JFrame {
 
+    // 사용자 패널 선언
     private MyPanel panel = new MyPanel();
     
-<<<<<<< HEAD
-    /**
-     * Creates new form GraphicsDrawOvalEx
-     */
-    public GraphicsDrawOvalEx() {
-        initComponents();
-        setContentPane(panel);
-    }
-
-    
-=======
-    // 기본 JPanle을 바꿀 사용자 패널 선언
->>>>>>> 4bb86cb40ad4efa6ccb9ac24da10dbde36645991
+    // 사용자 패널 정의
     class MyPanel extends JPanel {
 
         @Override
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.setColor(Color.RED);
-            g.drawOval(20, 20, 80, 80);
-<<<<<<< HEAD
+//            g.drawArc(WIDTH, WIDTH, WIDTH, HEIGHT, NORMAL, NORMAL);
+            g.drawArc(20, 100, 80, 80, 90, 270);
         }
-=======
-        }// paintComponet()
->>>>>>> 4bb86cb40ad4efa6ccb9ac24da10dbde36645991
         
     }// class MyPanel
     
     
-<<<<<<< HEAD
-    
-    
-    
-=======
     /**
-     * Creates new form GraphicsDrawOvalEx
+     * Creates new form GraphicsDrawArcEx
      */
-    public GraphicsDrawOvalEx() {
+    public GraphicsDrawArcEx() {
         initComponents();
-        setContentPane(panel);
+        setContentPane(panel);// 패널에 사용자 패널 적용
     }
 
->>>>>>> 4bb86cb40ad4efa6ccb9ac24da10dbde36645991
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,48 +52,21 @@ public class GraphicsDrawOvalEx extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<<<<<<< HEAD
-        MyPanel = new javax.swing.JPanel();
-
-=======
->>>>>>> 4bb86cb40ad4efa6ccb9ac24da10dbde36645991
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("drawOval 사용  예제");
-        setMinimumSize(new java.awt.Dimension(200, 170));
-        setPreferredSize(new java.awt.Dimension(200, 170));
-        setSize(new java.awt.Dimension(200, 170));
+        setTitle("DrawArc 사용예제");
+        setMinimumSize(new java.awt.Dimension(200, 300));
+        setPreferredSize(new java.awt.Dimension(200, 300));
+        setSize(new java.awt.Dimension(200, 300));
 
-<<<<<<< HEAD
-        javax.swing.GroupLayout MyPanelLayout = new javax.swing.GroupLayout(MyPanel);
-        MyPanel.setLayout(MyPanelLayout);
-        MyPanelLayout.setHorizontalGroup(
-            MyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        MyPanelLayout.setVerticalGroup(
-            MyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
-=======
->>>>>>> 4bb86cb40ad4efa6ccb9ac24da10dbde36645991
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
-            .addComponent(MyPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MyPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-=======
             .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
->>>>>>> 4bb86cb40ad4efa6ccb9ac24da10dbde36645991
         );
 
         pack();
@@ -137,28 +89,24 @@ public class GraphicsDrawOvalEx extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GraphicsDrawOvalEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GraphicsDrawArcEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GraphicsDrawOvalEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GraphicsDrawArcEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GraphicsDrawOvalEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GraphicsDrawArcEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GraphicsDrawOvalEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GraphicsDrawArcEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GraphicsDrawOvalEx().setVisible(true);
+                new GraphicsDrawArcEx().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-<<<<<<< HEAD
-    private javax.swing.JPanel MyPanel;
-=======
->>>>>>> 4bb86cb40ad4efa6ccb9ac24da10dbde36645991
     // End of variables declaration//GEN-END:variables
 }
