@@ -3,41 +3,60 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package _Beans;
-
-import java.awt.Color;
-import java.awt.Graphics;
-import javax.swing.JPanel;
+package _Beans._13;
 
 /**
  *
-<<<<<<< HEAD
  * @author user
- * @author kim
  */
-public class GraphicsDrawOvalEx extends javax.swing.JFrame {
+public class SynchronizedEx extends javax.swing.JFrame {
 
-    private MyPanel panel = new MyPanel();
+    class SharedBoard {
+        private int sum = 0;
+        
+        public void add() {
+            int n = sum;
+            Thread.yield();
+            n += 10;
+            sum = n;
+            System.out.println(Thread.currentThread().getName() + ":" + sum);
+        }
+        public int getSum() {
+            return sum;
+        }
+    }// class SharedBoard
     
-
-    // 기본 JPanle을 바꿀 사용자 패널 선언
-    class MyPanel extends JPanel {
+    class StudentThread extends Thread {
+        private SharedBoard board;
+        
+        public StudentThread(String name, SharedBoard board){
+            super(name);
+            this.board=board;
+        }// StudentThread()
 
         @Override
-        protected void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            g.setColor(Color.RED);
-            g.drawOval(20, 20, 80, 80);
-        }// paintComponet()
-    }// class MyPanel
-
+        public void run() {
+            // super.run();
+            for(int i=0; i<10; i++){
+                board.add();
+            }
+        }// run()
+        
+    }// class StudentThread
+    
+    
     /**
-     * Creates new form GraphicsDrawOvalEx
+     * Creates new form SynchronizedEx
      */
-    public GraphicsDrawOvalEx() {
+    public SynchronizedEx() {
         initComponents();
-        setContentPane(panel);
-    }
+        
+        SharedBoard board = new SharedBoard();
+        
+        Thread th1 = new StudentThread("kitae1", board);
+        Thread th2 = new StudentThread("kitae2", board);
+        
+    }// SychronizedEx()
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,34 +67,13 @@ public class GraphicsDrawOvalEx extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        MyPanel = new javax.swing.JPanel();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("drawOval 사용  예제");
-        setMinimumSize(new java.awt.Dimension(200, 170));
-        setPreferredSize(new java.awt.Dimension(200, 170));
-        setSize(new java.awt.Dimension(200, 170));
-
-        javax.swing.GroupLayout MyPanelLayout = new javax.swing.GroupLayout(MyPanel);
-        MyPanel.setLayout(MyPanelLayout);
-        MyPanelLayout.setHorizontalGroup(
-            MyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        MyPanelLayout.setVerticalGroup(
-            MyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setTitle("집계판");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MyPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MyPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -103,25 +101,24 @@ public class GraphicsDrawOvalEx extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GraphicsDrawOvalEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SynchronizedEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GraphicsDrawOvalEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SynchronizedEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GraphicsDrawOvalEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SynchronizedEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GraphicsDrawOvalEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SynchronizedEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GraphicsDrawOvalEx().setVisible(true);
+                new SynchronizedEx().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel MyPanel;
     // End of variables declaration//GEN-END:variables
 }

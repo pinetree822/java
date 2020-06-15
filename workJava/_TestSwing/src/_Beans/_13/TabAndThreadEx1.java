@@ -16,11 +16,11 @@ import javax.swing.JLabel;
 
 
     
-class MyLabel extends JLabel {
+class MyLabel1 extends JLabel {
 	private int barSize = 0; // 현재 그려져야할 바의 크기
 	private int maxBarSize; // 바의 최대 크
 	
-	public MyLabel(int maxBarSize) { 
+	public MyLabel1(int maxBarSize) { 
 		this.maxBarSize = maxBarSize;
 	}
 	
@@ -41,7 +41,7 @@ class MyLabel extends JLabel {
 		}
 		barSize++;
 		repaint(); // 바의 크기가 변했으니 다시 그리기
-		notify(); // 기다리는 ConsumerThread 스레드 깨우기
+		notify(); // 기다리는 ConsumerThread1 스레드 깨우기
 	}
 	synchronized public void consume() {
 		if(barSize == 0) {
@@ -56,10 +56,10 @@ class MyLabel extends JLabel {
 }
     
 
-class ConsumerThread extends Thread {
-	private MyLabel bar;
+class ConsumerThread1 extends Thread {
+	private MyLabel1 bar;
 	
-	public ConsumerThread(MyLabel bar) {
+	public ConsumerThread1(MyLabel1 bar) {
 		this.bar = bar;
 	}
 	
@@ -82,7 +82,7 @@ class ConsumerThread extends Thread {
  */
 public class TabAndThreadEx1 extends javax.swing.JFrame {
 
-	private MyLabel bar = new MyLabel(100); // 바의 최대 크기를 100으로 설정
+	private MyLabel1 bar = new MyLabel1(100); // 바의 최대 크기를 100으로 설정
 
     
     /**
@@ -114,7 +114,7 @@ public class TabAndThreadEx1 extends javax.swing.JFrame {
 
         c.setFocusable(true);
         c.requestFocus(); // 컨텐트팬에게 키 처리권 부여
-        ConsumerThread th = new ConsumerThread(bar); // 스레드 생성
+        ConsumerThread1 th = new ConsumerThread1(bar); // 스레드 생성
         th.start(); // 스레드 시작
         
     }

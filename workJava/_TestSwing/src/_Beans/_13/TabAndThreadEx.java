@@ -10,11 +10,11 @@ import java.awt.Graphics;
 import javax.swing.JLabel;
 
 
-class MyLabel1 extends JLabel {
+class MyLabel extends JLabel {
     private int barSize=0;
     private int maxBarSize=0;
 
-    public MyLabel1(int maxBarSize) {
+    public MyLabel(int maxBarSize) {
         this.maxBarSize = maxBarSize;
     }// MyLabel()
 
@@ -55,10 +55,10 @@ class MyLabel1 extends JLabel {
 
 
 
-class ConsumerThread1 extends Thread {
-    private MyLabel1 bar;
+class ConsumerThread extends Thread {
+    private MyLabel bar;
 
-    public ConsumerThread1(MyLabel1 bar) {
+    public ConsumerThread(MyLabel bar) {
         this.bar = bar;
     }// ConsumerThread()
 
@@ -84,7 +84,7 @@ class ConsumerThread1 extends Thread {
  */
 public class TabAndThreadEx extends javax.swing.JFrame {
 
-    private MyLabel1 bar = new MyLabel1(100);
+    private MyLabel bar = new MyLabel(100);
     
     /**
      * Creates new form TabAndThreadEx
