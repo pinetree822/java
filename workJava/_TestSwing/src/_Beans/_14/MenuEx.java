@@ -3,69 +3,53 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package _Beans._13;
+package _Beans._14;
 
-import java.awt.Container;
-import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 /**
  *
- * @author user
+ * @author kim
  */
-public class SynchronizedEx extends javax.swing.JFrame {
+public class MenuEx extends javax.swing.JFrame {
 
-    
-    class SharedBoard {
-        private int sum = 0;
-
-        public SharedBoard() {
-        }
+    private void createMenu(){
         
-        synchronized public void add() {
-            int n = sum;
-            Thread.yield();
-            n += 10;
-            sum = n;
-            System.out.println(Thread.currentThread().getName() + ":" + sum);
-            setTitle(Thread.currentThread().getName() + ":" + sum);
-        }
-        public int getSum() {
-            return sum;
-        }
-    }// class SharedBoard
-    
-    class StudentThread extends Thread {
-        private SharedBoard board;
+        // 메뉴바 생성
+        JMenuBar mb = new JMenuBar();
+        JMenu scnMenu = new JMenu("Screen");
         
-        public StudentThread(String name, SharedBoard board){
-            super(name);
-            this.board=board;
-        }// StudentThread()
-
-        @Override
-        public void run() {
-            // super.run();
-            for(int i=0; i<10; i++){
-                board.add();
-            }
-        }// run()
+        // Screen 메뉴에 메뉴아이템 생성 삽입
+        scnMenu.add(new JMenuItem("Load"));
+        scnMenu.add(new JMenuItem("Hide"));
+        scnMenu.add(new JMenuItem("ReShow"));
+        scnMenu.addSeparator();                 // 분리선 삽입
+        scnMenu.add(new JMenuItem("Exit"));
         
-    }// class StudentThread
-    
+        // 메뉴바에 메뉴 삽입
+        mb.add(scnMenu);
+        mb.add(new JMenu("Edit"));
+        mb.add(new JMenu("Source"));
+        mb.add(new JMenu("Project"));
+        mb.add(new JMenu("Run"));
+        
+        // 메뉴바를 프레임에 부착
+        setJMenuBar(mb);
+        
+    }// createMenu()
     
     /**
-     * Creates new form SynchronizedEx
+     * Creates new form MenuEx
      */
-    public SynchronizedEx() {
+    public MenuEx() {
         initComponents();
         
-        Container c = getContentPane();
-        SharedBoard board = new SharedBoard();
-        Thread th1 = new StudentThread("kitae1", board);
-        Thread th2 = new StudentThread("kitae2", board);
-        th1.start();
-        th2.start();
-    }// SychronizedEx()
+        createMenu();
+        
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,7 +61,8 @@ public class SynchronizedEx extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("집계판");
+        setTitle("Menu 만들기 예제");
+        setSize(new java.awt.Dimension(250, 200));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,20 +95,20 @@ public class SynchronizedEx extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SynchronizedEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SynchronizedEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SynchronizedEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SynchronizedEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SynchronizedEx().setVisible(true);
+                new MenuEx().setVisible(true);
             }
         });
     }
