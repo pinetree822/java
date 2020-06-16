@@ -6,8 +6,12 @@
 package _Beans._14;
 
 import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -20,6 +24,7 @@ import javax.swing.JMenuItem;
  */
 public class MenuActionEventEx extends javax.swing.JFrame {
 
+//    public Container contentPane;
     public JLabel imgLabel = new JLabel(); // 빈 이미지를 가진 레이블
     
     private void createMenu(){
@@ -39,6 +44,7 @@ public class MenuActionEventEx extends javax.swing.JFrame {
         mb.add(screenMenu); // 메뉴바에 Screen 메뉴 삽입
         setJMenuBar(mb); // 메뉴바를 프레임에 부착
         
+        
     }// createMenu()
     
     
@@ -49,9 +55,9 @@ public class MenuActionEventEx extends javax.swing.JFrame {
             String cmd = e.getActionCommand(); // 사용자가 선택한 메뉴아이템의 문자열 리턴
             switch(cmd) { // 메뉴 아이템의 종류 구분
                 case "Load" : 
-                    if(imgLabel.getIcon() != null) 
-                            return; // 이미 로딩되었으면 리턴
-                    imgLabel.setIcon(new ImageIcon("images/img.jpg")); 
+                    if(imgLabel.getIcon() != null)
+                        return; // 이미 로딩되었으면 리턴
+                    imgLabel.setIcon(new javax.swing.ImageIcon("images/img.jpg"));
                     break;
                 case "Hide" :		
                     imgLabel.setVisible(false); 
@@ -77,9 +83,11 @@ public class MenuActionEventEx extends javax.swing.JFrame {
      * 이미지 로딩이 않된다.. 이유를 모르겠음
      */
     public MenuActionEventEx() {
-        initComponents();
         getContentPane().add(imgLabel, BorderLayout.CENTER);
         createMenu();
+        setSize(250, 220);
+        setVisible(true);
+        initComponents();
     }
 
     /**
@@ -93,17 +101,18 @@ public class MenuActionEventEx extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu에 Action 리스너 만들기 예제");
+        setPreferredSize(null);
         setSize(new java.awt.Dimension(250, 220));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 475, Short.MAX_VALUE)
+            .addGap(0, 274, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 339, Short.MAX_VALUE)
+            .addGap(0, 165, Short.MAX_VALUE)
         );
 
         pack();

@@ -10,59 +10,57 @@ import java.awt.Color;
 import java.awt.Container;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
 /**
  *
- * @author user
+ * @author kim
  */
-public class ToolBarEx extends javax.swing.JFrame {
+public class ToolTipEx extends javax.swing.JFrame {
 
-    public Container contentPane;// 컨텐트 저장
+	private Container contentPane;
     
-//    public void createToolBar(){
-    public void createToolBar(){
-        // 툴바 생성
-        JToolBar toolBar = new JToolBar("TaeHoon Menu");
-        
-        // 툴바에 메뉴로 사용할 컴포넌트 삽입
-        toolBar.setBackground(Color.LIGHT_GRAY);
-        toolBar.add(new JButton("New"));
-        toolBar.add(new JButton("Open"));
-        toolBar.addSeparator();
-//        toolBar.add(new JButton(new ImageIcon("images/open.jpg")));
-//        toolBar.add(new JButton(new ImageIcon("images/save.jpg")));
-        toolBar.add(new JButton("Save"));
-        toolBar.add(new JLabel("search"));
-        toolBar.add(new JTextField("text field"));
-        
-        JComboBox<String> combo = new JComboBox<String>();
-        combo.addItem("Java");
-        combo.addItem("C#");
-        combo.addItem("C");
-        combo.addItem("C++");
-        toolBar.add(combo);
-        
-        // 툴바를 컨텐츠팬의 NORTH에 부착
-        contentPane.add(toolBar, BorderLayout.NORTH);
-//        return toolBar;
-    }// createToolBar()
-    
-    
+
+    // 툴바를 생성하여 컨텐트팬의 NORTH에 부착한다.
+    private void createToolBar() {
+        JToolBar bar = new JToolBar("Kitae Menu"); // 툴바 생성
+        bar.setBackground(Color.LIGHT_GRAY);
+
+        JButton newBtn = new JButton("New");
+        newBtn.setToolTipText("파일을 생성합니다."); // New 버튼에 툴팁 달기
+        bar.add(newBtn);
+
+        JButton openBtn = new JButton(new ImageIcon("images/open.jpg"));
+        openBtn.setToolTipText("파일을 엽니다."); // 열기 버튼에 툴팁 달기
+        bar.add(openBtn);
+        bar.addSeparator();
+
+        JButton saveBtn = new JButton(new ImageIcon("images/save.jpg"));
+        saveBtn.setToolTipText("파일을 저장합니다."); // 저장 버튼에 툴팁 달기
+        bar.add(saveBtn);		
+        bar.add(new JLabel("search"));
+
+        JTextField tf = new JTextField("text field");
+        tf.setToolTipText("찾고자하는 문자열을 입력하세요"); // 텍스트필드에 툴팁 달기
+        bar.add(tf);
+        contentPane.add(bar, BorderLayout.NORTH);
+    }
     
     /**
-     * Creates new form ToolBarEx
+     * Creates new form ToolTipEx
      */
-    public ToolBarEx() {
-        this.contentPane = getContentPane();// 컨테트 저장
-        // 툴바를 컨텐츠팬의 NORTH에 부착
-        setTitle("툴바 테스트");
+    public ToolTipEx() {
+        contentPane = getContentPane();
+        setTitle("툴팁 예제");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        contentPane = getContentPane();
         createToolBar();
-        setSize(400, 200);
+        setSize(400,150);
         setVisible(true);
+                
         initComponents();
     }
 
@@ -76,7 +74,6 @@ public class ToolBarEx extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setSize(new java.awt.Dimension(400, 200));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,20 +106,21 @@ public class ToolBarEx extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ToolBarEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ToolTipEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ToolBarEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ToolTipEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ToolBarEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ToolTipEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ToolBarEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ToolTipEx.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ToolBarEx().setVisible(true);
+                
+                new ToolTipEx().setVisible(true);
             }
         });
     }
