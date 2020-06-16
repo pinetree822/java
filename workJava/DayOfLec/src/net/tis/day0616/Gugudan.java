@@ -1,4 +1,4 @@
-package net.tis.day0615;
+package net.tis.day0616;
 
 import java.io.File;
 import java.io.FileWriter;

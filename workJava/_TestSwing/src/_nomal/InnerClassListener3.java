@@ -9,9 +9,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 
-public class InnerClassListener extends JFrame{
+public class InnerClassListener3 extends JFrame{
 
-	public InnerClassListener() {
+	public InnerClassListener3() {
 		setTitle("Action 이벤트 리스너 예제");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container c = getContentPane();
@@ -35,14 +35,14 @@ public class InnerClassListener extends JFrame{
 			if(b.getText().equals("Action")) b.setText("액션");
 			else b.setText("Action");
 			// InnerClassListener의 멤버나 JFrame의 멤버를 호출할 수 있음
-			InnerClassListener.this.setTitle(b.getText());// 프레임의 타이틀
+			InnerClassListener3.this.setTitle(b.getText());// 프레임의 타이틀
 		}// actionPerformed()
 	}// class MyActionListener
 
 	
 	
 	public static void main(String[] args) {
-		new InnerClassListener();
+		new InnerClassListener3();
 	}// main()
 	
 }// class innerClassListener
