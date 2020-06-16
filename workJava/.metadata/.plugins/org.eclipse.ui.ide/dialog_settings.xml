@@ -16,8 +16,9 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
-			<item value="D:\_xampp\htdocs\java\workJava"/>
+			<item value="C:\_lecture\_2020.0521목요일\net.tis.day16\Day1222"/>
 			<item value="C:\_xampp\htdocs\java\workJava"/>
+			<item value="D:\_xampp\htdocs\java\workJava"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
 			<item value=""/>
