@@ -10,7 +10,6 @@
 <fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
 <fullyQualifiedTypeName name="javax.swing.JPanel"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
-<fullyQualifiedTypeName name="java.awt.Font"/>
 <fullyQualifiedTypeName name="javax.swing.JLabel"/>
 <fullyQualifiedTypeName name="java.awt.event.MouseListener"/>
 <fullyQualifiedTypeName name="java.awt.event.MouseAdapter"/>
@@ -22,13 +21,23 @@
 <fullyQualifiedTypeName name="java.util.Set"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="java.io.FileReader"/>
-<fullyQualifiedTypeName name="java.io.IOException"/>
-<fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="_nomal.StudentThread"/>
 <fullyQualifiedTypeName name="javax.swing.JMenuItem"/>
 <fullyQualifiedTypeName name="javax.swing.JToolBar"/>
-<fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="javax.swing.JButton"/>
 <fullyQualifiedTypeName name="javax.swing.JTextField"/>
+<fullyQualifiedTypeName name="java.awt.LayoutManager"/>
+<fullyQualifiedTypeName name="java.awt.Font"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="java.awt.Panel"/>
+<fullyQualifiedTypeName name="java.awt.Label"/>
+<fullyQualifiedTypeName name="java.awt.Button"/>
+<fullyQualifiedTypeName name="java.awt.TextField"/>
+<fullyQualifiedTypeName name="javax.swing.BorderFactory"/>
 <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+<fullyQualifiedTypeName name="java.io.OutputStreamWriter"/>
+<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
 </qualifiedTypeNameHistroy>

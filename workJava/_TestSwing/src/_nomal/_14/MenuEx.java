@@ -38,7 +38,6 @@ public class MenuEx extends JFrame{
 	public MenuEx() {
 		setTitle("Menu 만들기 예제");
 		createMenu();
-		
 		setSize(250, 200);
 		setVisible(true);
 	}// MenuEx()
