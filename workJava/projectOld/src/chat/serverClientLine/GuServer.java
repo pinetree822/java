@@ -26,6 +26,11 @@ public class GuServer extends Frame implements ActionListener {
 	
 
 	
+<<<<<<< HEAD
+=======
+
+	
+>>>>>>> a3935df8f0679e93c223de3bd7ed88853c3f940e
 	// txt_list 서버현황을 업데이트 시키는 기능
 	public void setMsg(String msg) {
 		txt_list.append(msg);
