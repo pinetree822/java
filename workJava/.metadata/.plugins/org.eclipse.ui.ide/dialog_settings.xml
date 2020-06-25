@@ -11,11 +11,21 @@
 	</section>
 	<section name="ExternalProjectImportWizard">
 		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="false"/>
-		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="true"/>
 		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\user\Documents\카카오톡 받은 파일\ChattingProject_V2"/>
+			<item value="C:\_xampp\htdocs\java\workJava\test1"/>
+			<item value="C:\_xampp\htdocs\java\workJava\TeamChat"/>
+			<item value="C:\_xampp\htdocs\java\workJava\Practice"/>
+			<item value="C:\_xampp\htdocs\java\workJava\phoneManage"/>
+			<item value="C:\_xampp\htdocs\java\workJava\javaChatSample"/>
+			<item value="C:\_xampp\htdocs\java\workJava\eatingHouse_old"/>
+			<item value="C:\_xampp\htdocs\java\workJava\_project"/>
+			<item value="C:\_xampp\htdocs\java\workJava\_jdbc"/>
+			<item value="C:\_xampp\htdocs\java\workJava\_dbCon2"/>
 			<item value="C:\_lecture\_2020.0521목요일\net.tis.day16\Day1222"/>
 			<item value="C:\_xampp\htdocs\java\workJava"/>
 			<item value="D:\_xampp\htdocs\java\workJava"/>
@@ -35,5 +45,12 @@
 		<item key="DIALOG_WIDTH" value="525"/>
 		<item key="DIALOG_HEIGHT" value="580"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+	<section name="CleanDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="1358"/>
+		<item key="DIALOG_Y_ORIGIN" value="302"/>
+		<item key="DIALOG_WIDTH" value="500"/>
+		<item key="DIALOG_HEIGHT" value="389"/>
+		<item key="TOGGLE_SELECTED" value="false"/>
 	</section>
 </section>

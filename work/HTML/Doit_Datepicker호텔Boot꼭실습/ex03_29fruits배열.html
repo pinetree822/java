@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>배열 객체</title>
+</head>
+
+<body>
+<p id="demo"></p>
+<script>
+	var fruits=["banana","orange","apple","mango"];
+	//alert(fruits.length);
+	
+	var text="";
+	for(var i=0; i<fruits.length; i++){
+		text += fruits[i] +"<br>";
+	}
+	
+	document.getElementById("demo").innerHTML=text;
+	//document.write(text);
+</script>
+</body>
+</html>
+
+
+<!-- # 배열
+	문법)
+	1. 첫번째 선언방법
+	배열변수명=new Array();
+	배열변수명[인덱스]=값;
+	ex) arr=new Array();
+	    arr[0]=10;
+	    arr[1]=20;  
+	
+	2. 두번째 선언방법
+	배열변수명=[값,값,값, ...];
+	ex) arr=[10,20.....];
+	
+	3. 세번째 선언방법
+	배열변수명=new Array( 값, 값, 값, ... );
+	ex) arr=new Array(10,20,......);
+-->

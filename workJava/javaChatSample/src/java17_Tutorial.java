@@ -1,0 +1,549 @@
+/*
+
+
+http://www.java2s.com/Tutorial/Java/0320__Network/CreateaServerSocket.htm
+
+
+
+
+
+*/
+
+//Create a ServerSocket : 
+
+import java.io.IOException;
+import java.net.ServerSocket;
+
+public class MainClass {
+
+  public static void main(String[] args) {
+
+    try {
+      ServerSocket server = new ServerSocket(0);
+      System.out.println("This server runs on port " + server.getLocalPort());
+    } catch (IOException ex) {
+      System.err.println(ex);
+    }
+  }
+}
+
+
+
+
+
+
+
+//Hello Server : 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class MainClass {
+
+  public static void main(String[] args) throws IOException {
+
+    int port = 2345;
+    ServerSocket ss = new ServerSocket(port);
+    while (true) {
+      try {
+        Socket s = ss.accept();
+
+        String response = "Hello " + s.getInetAddress() + " on port " + s.getPort() + "\r\n";
+        response += "This is " + s.getLocalAddress() + " on port " + s.getLocalPort() + "\r\n";
+        OutputStream out = s.getOutputStream();
+        out.write(response.getBytes("US-ASCII"));
+        out.flush();
+        s.close();
+      } catch (IOException ex) {
+      }
+    }
+  }
+}
+
+
+
+
+
+//Time server 
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class MainClass {
+
+  public static void main(String[] args) throws Exception {
+
+    int port = 37;
+    ServerSocket server = new ServerSocket(port);
+    while (true) {
+      Socket connection = null;
+      connection = server.accept();
+      OutputStream out = connection.getOutputStream();
+      out.write(123);
+      out.flush();
+      connection.close();
+    }
+  }
+
+}
+
+
+
+
+
+
+//Thread based ServerSocket
+
+import java.io.BufferedOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class MainClass {
+  public static void main(String[] args) throws IOException {
+    int port = 9000;
+
+    ServerSocket server = new ServerSocket(port);
+    while (true) {
+      Socket socket = server.accept();
+      Thread stuffer = new StuffThread(socket);
+      stuffer.start();
+    }
+
+  }
+
+}
+
+class StuffThread extends Thread {
+  private byte[] data = new byte[255];
+
+  private Socket socket;
+
+  public StuffThread(Socket socket) {
+
+    for (int i = 0; i < data.length; i++)
+      data[i] = (byte) i;
+    this.socket = socket;
+  }
+
+  public void run() {
+    try {
+      OutputStream out = new BufferedOutputStream(socket.getOutputStream());
+      while (!socket.isClosed()) {
+        out.write(data);
+      }
+      socket.close();
+    } catch (Exception e) {
+    }
+  }
+}
+
+
+
+
+
+
+//Generic Server
+
+import java.io.BufferedOutputStream;
+import java.io.FilterInputStream;
+import java.io.FilterOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class GenericServer {
+   public static void main(String args[]) {
+    int serverPort = 1234;
+    try {
+      ServerSocket server = new ServerSocket(serverPort);
+      do {
+        Socket client = server.accept();
+        (new ServerThread(client)).start();
+      } while (true);
+    } catch (IOException ex) {
+      System.exit(0);
+    }
+  }
+}
+
+class ServerThread extends Thread {
+  Socket client;
+
+  public ServerThread(Socket client) {
+    this.client = client;
+  }
+
+  public void run() {
+    try {
+      ServiceOutputStream outStream = new ServiceOutputStream(new BufferedOutputStream(client
+          .getOutputStream()));
+      ServiceInputStream inStream = new ServiceInputStream(client.getInputStream());
+      ServiceRequest request = inStream.getRequest();
+      while (processRequest(outStream)) {
+      }
+      client.close();
+    } catch (IOException ex) {
+      System.exit(0);
+    }
+  }
+
+  public boolean processRequest(ServiceOutputStream outStream) {
+    return false;
+  }
+}
+
+class ServiceInputStream extends FilterInputStream {
+  public ServiceInputStream(InputStream in) {
+    super(in);
+  }
+
+  public ServiceRequest getRequest() throws IOException {
+    ServiceRequest request = new ServiceRequest();
+    return request;
+  }
+}
+
+class ServiceOutputStream extends FilterOutputStream {
+  public ServiceOutputStream(OutputStream out) {
+    super(out);
+  }
+}
+
+class ServiceRequest {
+}
+
+
+
+
+
+//Timer server with Thread
+
+
+import java.io.BufferedOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Date;
+
+public class TimeServer extends Thread {
+  private ServerSocket sock;
+
+  public TimeServer() throws Exception {
+    sock = new ServerSocket(55555);
+  }
+
+  public void run() {
+    Socket client = null;
+
+    while (true) {
+      if (sock == null)
+        return;
+      try {
+        client = sock.accept();
+        BufferedOutputStream bos = new BufferedOutputStream(client.getOutputStream());
+        PrintWriter os = new PrintWriter(bos, false);
+        String outLine;
+
+        Date now = new Date();
+        os.println(now);
+        os.flush();
+
+        os.close();
+        client.close();
+      } catch (IOException e) {
+        System.out.println("Error: couldn't connect to client.");
+        System.exit(1);
+      }
+    }
+  }
+
+  public static void main(String[] arguments) throws Exception {
+    TimeServer server = new TimeServer();
+    server.start();
+  }
+
+}
+
+
+
+
+
+
+
+//A multithreaded Socket Server 
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class EchoServer {
+  public static void main(String[] args) throws Exception {
+    ServerSocket m_ServerSocket = new ServerSocket(12111);
+    int id = 0;
+    while (true) {
+      Socket clientSocket = m_ServerSocket.accept();
+      ClientServiceThread cliThread = new ClientServiceThread(clientSocket, id++);
+      cliThread.start();
+    }
+  }
+}
+
+class ClientServiceThread extends Thread {
+  Socket clientSocket;
+  int clientID = -1;
+  boolean running = true;
+
+  ClientServiceThread(Socket s, int i) {
+    clientSocket = s;
+    clientID = i;
+  }
+
+  public void run() {
+    System.out.println("Accepted Client : ID - " + clientID + " : Address - "
+        + clientSocket.getInetAddress().getHostName());
+    try {
+      BufferedReader   in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+      PrintWriter   out = new PrintWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
+      while (running) {
+        String clientCommand = in.readLine();
+        System.out.println("Client Says :" + clientCommand);
+        if (clientCommand.equalsIgnoreCase("quit")) {
+          running = false;
+          System.out.print("Stopping client thread for client : " + clientID);
+        } else {
+          out.println(clientCommand);
+          out.flush();
+        }
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+}
+
+
+
+
+
+
+//Get IP address from NetworkInterface and create server socket
+
+
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Enumeration;
+
+public class Main {
+  static public void main(String args[]) throws Exception {
+    int port = 80;
+
+    NetworkInterface ni = NetworkInterface.getByName("name");
+    Enumeration e = ni.getInetAddresses();
+    if (!e.hasMoreElements())
+      return;
+    InetAddress ia = (InetAddress) e.nextElement();
+
+    ServerSocket ss = new ServerSocket(port, 20, ia);
+    System.out.println("Listening");
+    Socket s = ss.accept();
+    System.out.println(s);
+  }
+}
+
+
+
+
+
+
+//Logging Server based on SocketServer 
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class Main {
+
+  public static void main(String args[]) throws Exception {
+    ServerSocket serverSocket = new ServerSocket(8080);
+    Socket socket = serverSocket.accept();
+
+    InputStream inStream = socket.getInputStream();
+    BufferedReader reader = new BufferedReader(new InputStreamReader(inStream));
+    String str = null;
+    while ((str = reader.readLine()) != null) {
+      System.out.println(str);
+    }
+  }
+}
+
+
+
+
+
+
+//Data server
+
+import java.io.DataOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class Main {
+  public static void main(String args[]) throws Exception {
+    ServerSocket ssock = new ServerSocket(1234);
+    while (true) {
+      System.out.println("Listening");
+      Socket sock = ssock.accept();
+
+      DataOutputStream dstream = new DataOutputStream(sock.getOutputStream());
+      dstream.writeFloat(3.14159265f);
+      dstream.close();
+      sock.close();
+    }
+  }
+}
+
+
+
+
+
+//Object server
+
+import java.io.ObjectOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Hashtable;
+
+public class Main {
+  public static void main(String args[]) throws Exception {
+    ServerSocket ssock = new ServerSocket(1234);
+    Hashtable hash = new Hashtable();
+    hash.put("A", "a");
+
+    while (true) {
+      Socket sock = ssock.accept();
+      ObjectOutputStream ostream = new ObjectOutputStream(sock.getOutputStream());
+      ostream.writeObject(hash);
+      ostream.close();
+      sock.close();
+    }
+  }
+}
+
+
+
+
+
+
+
+
+// Compressed socket 
+
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.zip.GZIPInputStream;
+
+public class Main {
+  public static void main(String[] args) throws Exception {
+    ServerSocket ssock = new ServerSocket(Integer.parseInt(args[0]));
+    Socket sock = ssock.accept();
+    GZIPInputStream zip = new GZIPInputStream(sock.getInputStream());
+    while (true) {
+      int c;
+      c = zip.read();
+      if (c == -1)
+        break;
+      System.out.print((char) c);
+    }
+  }
+}
+
+
+
+
+
+
+//Zip server socket
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.zip.ZipInputStream;
+import java.util.zip.ZipOutputStream;
+import java.net.Socket;
+ 
+class ZipSocket extends Socket {
+
+    private InputStream in;
+    private OutputStream out;
+
+    public ZipSocket() { super(); }
+
+    public ZipSocket(String host, int port) 
+        throws IOException {
+        super(host, port);
+    }
+
+    public InputStream getInputStream() 
+        throws IOException {
+        if (in == null) {
+            in = new ZipInputStream(super.getInputStream());
+        }
+        return in;
+    }
+
+    public OutputStream getOutputStream() 
+        throws IOException {
+        if (out == null) {
+            out = new ZipOutputStream(super.getOutputStream());
+        }
+        return out;
+    }
+
+   
+    public synchronized void close() throws IOException {
+        OutputStream o = getOutputStream();
+        o.flush();
+  super.close();
+    }
+
+}
+
+
+
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.io.IOException;
+
+public class ZipServerSocket extends ServerSocket
+{
+  public ZipServerSocket(int port) throws IOException
+  { 
+  super(port);
+  }
+
+  public Socket accept() throws IOException
+  { 
+     Socket socket = new ZipSocket();
+     implAccept(socket);
+     return socket;
+  }
+}
+
+
+
+

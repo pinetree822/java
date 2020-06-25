@@ -1,0 +1,311 @@
+/*
+
+http://codereview.stackexchange.com/questions/20961/java-multi-thread-file-server-and-client
+
+Java multi-thread file server and client
+
+
+My task was to build a multi-thread file server and a client that can upload or download a named file over sockets. 
+
+It is assumed that the client will finish after its operation and there is no need 
+
+to supply a file list from the server (although I plan to add that). 
+
+There is no error check if the client enters a file name that does not exist on the server.
+
+
+I think that the basic protocol I've set up is ugly at best and would like opinions on a better way to approach this.
+
+I'm quite sure this is barely doing the job, so criticism is welcomed.
+
+Flow:
+
+Start Server
+Start Client, connection made if possible.
+Client then chooses whether to upload or download a file.
+Server receives this initial message and takes appropriate action.
+
+*/
+
+
+
+
+
+FileServer
+
+public class FileServer {
+
+    private static ServerSocket serverSocket;
+    private static Socket clientSocket = null;
+
+    public static void main(String[] args) throws IOException {
+
+        try {
+            serverSocket = new ServerSocket(4444);
+            System.out.println("Server started.");
+        } catch (Exception e) {
+            System.err.println("Port already in use.");
+            System.exit(1);
+        }
+
+        while (true) {
+            try {
+                clientSocket = serverSocket.accept();
+                System.out.println("Accepted connection : " + clientSocket);
+
+                Thread t = new Thread(new CLIENTConnection(clientSocket));
+
+                t.start();
+
+            } catch (Exception e) {
+                System.err.println("Error in connection attempt.");
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+CLIENTConnection
+
+public class CLIENTConnection implements Runnable {
+
+    private Socket clientSocket;
+    private BufferedReader in = null;
+
+    public CLIENTConnection(Socket client) {
+        this.clientSocket = client;
+    }
+
+    @Override
+    public void run() {
+        try {
+            in = new BufferedReader(new InputStreamReader(
+                    clientSocket.getInputStream()));
+            String clientSelection;
+            while ((clientSelection = in.readLine()) != null) {
+                switch (clientSelection) {
+                    case "1":
+                        receiveFile();
+                        break;
+                    case "2":
+                        String outGoingFileName;
+                        while ((outGoingFileName = in.readLine()) != null) {
+                            sendFile(outGoingFileName);
+                        }
+
+                        break;
+                    default:
+                        System.out.println("Incorrect command received.");
+                        break;
+                }
+                in.close();
+                break;
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(CLIENTConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void receiveFile() {
+        try {
+            int bytesRead;
+
+            DataInputStream clientData = new DataInputStream(clientSocket.getInputStream());
+
+            String fileName = clientData.readUTF();
+            OutputStream output = new FileOutputStream(("received_from_client_" + fileName));
+            long size = clientData.readLong();
+            byte[] buffer = new byte[1024];
+            while (size > 0 && (bytesRead = clientData.read(buffer, 0, (int) Math.min(buffer.length, size))) != -1) {
+                output.write(buffer, 0, bytesRead);
+                size -= bytesRead;
+            }
+
+            output.close();
+            clientData.close();
+
+            System.out.println("File "+fileName+" received from client.");
+        } catch (IOException ex) {
+            System.err.println("Client error. Connection closed.");
+        }
+    }
+
+    public void sendFile(String fileName) {
+        try {
+            //handle file read
+            File myFile = new File(fileName);
+            byte[] mybytearray = new byte[(int) myFile.length()];
+
+            FileInputStream fis = new FileInputStream(myFile);
+            BufferedInputStream bis = new BufferedInputStream(fis);
+            //bis.read(mybytearray, 0, mybytearray.length);
+
+            DataInputStream dis = new DataInputStream(bis);
+            dis.readFully(mybytearray, 0, mybytearray.length);
+
+            //handle file send over socket
+            OutputStream os = clientSocket.getOutputStream();
+
+            //Sending file name and file size to the server
+            DataOutputStream dos = new DataOutputStream(os);
+            dos.writeUTF(myFile.getName());
+            dos.writeLong(mybytearray.length);
+            dos.write(mybytearray, 0, mybytearray.length);
+            dos.flush();
+            System.out.println("File "+fileName+" sent to client.");
+        } catch (Exception e) {
+            System.err.println("File does not exist!");
+        } 
+    }
+}
+
+
+
+
+
+
+
+FileClient
+
+public class FileClient {
+
+    private static Socket sock;
+    private static String fileName;
+    private static BufferedReader stdin;
+    private static PrintStream os;
+
+    public static void main(String[] args) throws IOException {
+        try {
+            sock = new Socket("localhost", 4444);
+            stdin = new BufferedReader(new InputStreamReader(System.in));
+        } catch (Exception e) {
+            System.err.println("Cannot connect to the server, try again later.");
+            System.exit(1);
+        }
+
+        os = new PrintStream(sock.getOutputStream());
+
+        try {
+              switch (Integer.parseInt(selectAction())) {
+            case 1:
+                os.println("1");
+                sendFile();
+                break;
+            case 2:
+                os.println("2");
+                System.err.print("Enter file name: ");
+                fileName = stdin.readLine();
+                os.println(fileName);
+                receiveFile(fileName);
+                break;
+        }
+        } catch (Exception e) {
+            System.err.println("not valid input");
+        }
+
+
+        sock.close();
+    }
+
+    public static String selectAction() throws IOException {
+        System.out.println("1. Send file.");
+        System.out.println("2. Recieve file.");
+        System.out.print("\nMake selection: ");
+
+        return stdin.readLine();
+    }
+
+    public static void sendFile() {
+        try {
+            System.err.print("Enter file name: ");
+            fileName = stdin.readLine();
+
+            File myFile = new File(fileName);
+            byte[] mybytearray = new byte[(int) myFile.length()];
+
+            FileInputStream fis = new FileInputStream(myFile);
+            BufferedInputStream bis = new BufferedInputStream(fis);
+            //bis.read(mybytearray, 0, mybytearray.length);
+
+            DataInputStream dis = new DataInputStream(bis);
+            dis.readFully(mybytearray, 0, mybytearray.length);
+
+            OutputStream os = sock.getOutputStream();
+
+            //Sending file name and file size to the server
+            DataOutputStream dos = new DataOutputStream(os);
+            dos.writeUTF(myFile.getName());
+            dos.writeLong(mybytearray.length);
+            dos.write(mybytearray, 0, mybytearray.length);
+            dos.flush();
+            System.out.println("File "+fileName+" sent to Server.");
+        } catch (Exception e) {
+            System.err.println("File does not exist!");
+        }
+    }
+
+    public static void receiveFile(String fileName) {
+        try {
+            int bytesRead;
+            InputStream in = sock.getInputStream();
+
+            DataInputStream clientData = new DataInputStream(in);
+
+            fileName = clientData.readUTF();
+            OutputStream output = new FileOutputStream(("received_from_server_" + fileName));
+            long size = clientData.readLong();
+            byte[] buffer = new byte[1024];
+            while (size > 0 && (bytesRead = clientData.read(buffer, 0, (int) Math.min(buffer.length, size))) != -1) {
+                output.write(buffer, 0, bytesRead);
+                size -= bytesRead;
+            }
+
+            output.close();
+            in.close();
+
+            System.out.println("File "+fileName+" received from Server.");
+        } catch (IOException ex) {
+            Logger.getLogger(CLIENTConnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+}
+
+
+
+
+
+
+
+/*
+
+The basic client / server code looks pretty good.
+
+If you want clearer vision for "something" in java, you need to start defining the boundary of that "something". In Java the ideal choice is the Class.
+
+Start by refactoring your code to separate what you consider the "Protocol" into a "Protocol" class. Later on, if you find that you want to support more than one "Protocol" write a second "ProtocolTwo" class, rename the "Protocol" class to something like "ProtocolOne" and make a common shared interface between the two called "Protocol".
+
+My imaginings for a "Protocol" class that would work with your code:
+
+Protocol protocol = new Protocol();
+Action action = protocol.readAction(sock.getOutputStream());
+action.perform();
+Of course, it is homework, so you'll get the joy of putting all the important bits into the right places. Good luck, and post back as you get closer to the goal.
+
+*/
+
+
+
+
+
+
+
+
+

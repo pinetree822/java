@@ -1,0 +1,135 @@
+자바 AWT & Swing & FX 샘플소스 튜토리얼
+
+
+
+
+
+
+자바(Java)의 기초 박살내기 - Java GUI③ - 이벤트 설명 잘됨
+https://raccoonjy.tistory.com/18
+
+
+
+<자바과정수업한 잘정리한곳> -2014
+https://m.blog.naver.com/dydgus2433/40212069824
+
+<블로그>
+
+[Java] 그래픽 GUI AWT 사용법- 2018. 11. 5. 23:19
+https://coding-factory.tistory.com/entry/Java-%EA%B7%B8%EB%9E%98%ED%94%BD-GUI-AWT-%EC%82%AC%EC%9A%A9%EB%B2%95
+
+자바 GUI 화면 구성하기 - 2017. 2. 15. 01:55 by B-612 Asteroids
+https://asteroid.b-612.net/73
+
+
+
+<youtube>
+자바FX 1강 소개 및 설치
+
+
+
+
+
+<회사및 기타홈페이지>
+
+SWING 기초 / 컨테이너와 컴포넌트
+https://m.blog.naver.com/rain483/220735833829
+https://www.google.com/imgres?imgurl=http%3A%2F%2Fblogthumb2.naver.net%2F20160614_189%2Frain483_1465915513744Tt5Hz_PNG%2Fe1.PNG%3Ftype%3Dw2&imgrefurl=http%3A%2F%2Fm.blog.naver.com%2Frain483%2F220736483150&docid=9LBR87Re6QD5HM&tbnid=f0CrZfI2uKOfsM%3A&vet=1&w=699&h=485&itg=1&bih=1280&biw=1498&ved=2ahUKEwiJsa7Fpd3pAhUb7WEKHWlQBBQQxiAoAHoECAEQFg&iact=c&ictx=1
+
+(감성 프로그래밍) java정리 - 이벤트 처리 / swing
+https://programmingsummaries.tistory.com/62
+
+
+자바 튜토리얼 > NetBeans IDE를 통한 스윙학습
+https://docs.oracle.com/javase/tutorial/uiswing/learn/creatinggui.html
+
+트레일 : JFC / Swing으로 GUI 생성
+https://docs.oracle.com/javase/tutorial/uiswing/index.html
+
+
+아파치넷빈즈 11.3 - GUI 구축 소개
+http://netbeans.apache.org/kb/docs/java/gui-functionality.html
+
+
+아파치넷빈즈 11.3 - 자바 SE 학습 트레일
+https://netbeans.apache.org/kb/docs/java/index.html
+
+
+
+NetBeans IDE를 사용하여 응용 프로그램 개발 - NetBeans IDE에 대한 사용정보
+https://docs.oracle.com/netbeans/nb82/netbeans/NBDAG/create_japps.htm#NBDAG368
+
+
+[자바프로젝트 - Swing] 오늘뭐먹지? 로그인
+https://www.youtube.com/watch?v=E2LgG_h6Ioo
+https://www.google.com/imgres?imgurl=https%3A%2F%2Fi.ytimg.com%2Fvi%2FE2LgG_h6Ioo%2Fmaxresdefault.jpg&imgrefurl=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DE2LgG_h6Ioo&tbnid=3x_m5Ui58eCBoM&vet=10CG0QMyiXAWoXChMIoOWgi5vd6QIVAAAAAB0AAAAAEA4..i&docid=m0FvN1H2y4xvDM&w=1280&h=720&q=%EC%9E%90%EB%B0%94%20%EC%8A%A4%EC%9C%99%20GUI&ved=0CG0QMyiXAWoXChMIoOWgi5vd6QIVAAAAAB0AAAAAEA4
+
+
+
+
+<구글검색>
+구글검색 : Java AWT
+https://www.google.com/search?rlz=1C1CHBD_koKR874KR874&sxsrf=ALeKk01XlSnb2OarAijEs2dIGNdbTT0WhA:1590814711060&q=Java+AWT&sa=X&ved=2ahUKEwiBgobO5trpAhWTwosBHeNlCaMQ1QIoAnoECAwQAw
+구글검색 이미지 : Java AWT
+https://www.google.com/imgres?imgurl=http%3A%2F%2Fpostfiles6.naver.net%2F20141001_181%2F1stwook_1412155705926HWEi7_JPEG%2F20141001_182741.jpg%3Ftype%3Dw2&imgrefurl=http%3A%2F%2Fblog.naver.com%2FPostView.nhn%3FblogId%3D1stwook%26logNo%3D220138459087&tbnid=Jd8XFo4ePmyDuM&vet=12ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyhJegUIARCuAQ..i&docid=dHV5rjAlfJdAaM&w=610&h=460&q=%EC%9E%90%EB%B0%94%20%EC%8A%A4%EC%9C%99%20GUI&ved=2ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyhJegUIARCuAQ#h=460&imgdii=8H4b1om_4cyC2M:&vet=12ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyhJegUIARCuAQ..i&w=610
+구글검색 이미지 : Java login창
+https://www.google.com/imgres?imgurl=http%3A%2F%2Fblogfiles11.naver.net%2Fdata2%2F2004%2F9%2F25%2F202%2Flogin-jaavaa.gif&imgrefurl=http%3A%2F%2Fm.ssiso.net%2F%3Fcontent_num%3D2449&tbnid=Wz-puSiPN3vscM&vet=12ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyhIegUIARCsAQ..i&docid=Rz2JPucysgaaNM&w=244&h=131&itg=1&q=%EC%9E%90%EB%B0%94%20%EC%8A%A4%EC%9C%99%20GUI&ved=2ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyhIegUIARCsAQ
+
+구글검색 이미지: 자바 스윙 GUI
+https://www.google.com/search?q=%EC%9E%90%EB%B0%94+%EC%8A%A4%EC%9C%99+GUI&rlz=1C1CHBD_koKR874KR874&sxsrf=ALeKk03rmabfpq4akx2Ne1P-HDBV1esOeg:1590897359204&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj2kOC_mt3pAhWJfXAKHdJJBF0Q_AUoAXoECBIQAw#imgrc=hpeHBD4awKr-IM
+
+구글검색 이미지: 자바 스윙 GUI
+https://www.google.com/search?q=%EC%9E%90%EB%B0%94+%EC%8A%A4%EC%9C%99+GUI&tbm=isch&tbs=rimg:CU6Mut0fjUrtImDCU6sAyD53OqHq4dJEYiJN4yYh7lcikljAYaDWU42oD-3S0Mh5-niSZHr-lBdYogk3zabUQV_1qsJL2u20Bbm6OwmSia6bwAI-0pIMNy7L_1ylv-ZHnIRvsLqdXGEasS7rcqEgnCU6sAyD53OhG4Px_1XjTToaioSCaHq4dJEYiJNEV_1f13jL227oKhIJ4yYh7lciklgROYEsEcEuhn8qEgnAYaDWU42oDxGs35FXxsaxJioSCe3S0Mh5-niSEWzF8vz1yS0lKhIJZHr-lBdYogkR96I77Jlb8zUqEgk3zabUQV_1qsBFlz_1bgfBPBqyoSCZL2u20Bbm6OEb-jpk8H8doNKhIJwmSia6bwAI8ROYEsEcEuhn8qEgm0pIMNy7L_1yhEjG3ODuI34-yoSCVv-ZHnIRvsLERzgZUYDchVKKhIJqdXGEasS7rcRQFBBXUzLBNhhX9_1XeMvbbug&tbo=u&sa=X&ved=2ahUKEwinvLfqm93pAhWFFIgKHf2lBsMQuIIBegQIARA6&biw=1498&bih=1214&dpr=0.75
+
+
+
+<자바 gui 프로젝트>
+구글검색 :자바 gui 프로젝트
+https://www.google.com/search?q=%EC%9E%90%EB%B0%94+gui+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8&tbm=isch&rlz=1C1CHBD_koKR874KR874&hl=ko&ved=2ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQrNwCKAF6BAgBEGw
+
+
+<달력>
+구글검색 : java swing calendar
+https://www.google.com/search?q=java+swing+calendar&tbm=isch&rlz=1C1CHBD_koKR874KR874&hl=ko&ved=2ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQrNwCKAJ6BAgBEG4
+
+구글검색 : 자바 스윙 달력
+https://www.google.com/search?q=%EC%9E%90%EB%B0%94+%EC%8A%A4%EC%9C%99+%EB%8B%AC%EB%A0%A5&tbm=isch&rlz=1C1CHBD_koKR874KR874&hl=ko&ved=2ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQrNwCKAB6BAgBEGo
+
+
+<자바 스윙 일정관리 프로그램>
+구글검색 : 자바 스윙 일정관리
+https://www.google.com/search?q=java+swing+%EC%9D%BC%EC%A0%95+%EA%B4%80%EB%A6%AC&tbm=isch&rlz=1C1CHBD_koKR874KR874&hl=ko&ved=2ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQrNwCKAJ6BQgBEKYB
+
+
+구글검색 : 자바 스윙8강: Panel 에 배경사진 넣기
+https://www.google.com/imgres?imgurl=https%3A%2F%2Fi.ytimg.com%2Fvi%2FQjmhiS8lw24%2Fmaxresdefault.jpg&imgrefurl=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DQjmhiS8lw24&tbnid=NAqSni-rwV5JYM&vet=12ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyhDegUIARCaAQ..i&docid=nlyOs7XmtNEQ2M&w=1280&h=720&q=%EC%9E%90%EB%B0%94%20%EC%8A%A4%EC%9C%99%20GUI&ved=2ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyhDegUIARCaAQ
+
+[Java Communication] 버그수정 & GUI를 이용한 테스트용 자바 채팅 프로그램
+출처: https://blog.chopestory.net/80 [안녕하세요. 초보프로그래머를 줄여 초프입니다.]
+https://www.google.com/imgres?imgurl=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F1963FC014BEB582201&imgrefurl=https%3A%2F%2Fblog.chopestory.net%2F80&tbnid=Toy63R-NSu2gMM&vet=12ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyg_egUIARCRAQ..i&docid=X9_XeMvbbugslM&w=716&h=338&q=%EC%9E%90%EB%B0%94%20%EC%8A%A4%EC%9C%99%20GUI&ved=2ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyg_egUIARCRAQ
+
+Use Swing to create a GUI
+https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.lynda.com%2Fvideo%2F534494-289-636144430512972797_338x600_thumb.jpg&imgrefurl=https%3A%2F%2Fwww.lynda.com%2FJava-tutorials%2FUse-Swing-create-GUI%2F497779%2F534494-4.html&tbnid=hyTm5vp5wJNaKM&vet=12ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyg6egUIARCHAQ..i&docid=wsLvzxqD0V7n0M&w=600&h=338&q=%EC%9E%90%EB%B0%94%20%EC%8A%A4%EC%9C%99%20GUI&ved=2ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyg6egUIARCHAQ
+
+
+구글검색: 자바이미지기타
+https://www.google.com/imgres?imgurl=http%3A%2F%2Fcfs2.tistory.com%2Fupload_control%2Fdownload.blog%3Ffhandle%3DYmxvZzE5ODQ5QGZzMi50aXN0b3J5LmNvbTovYXR0YWNoLzkvOTE4LmdpZg%3D%3D%26filename%3Dct918.gif&imgrefurl=https%3A%2F%2Flevin01.tistory.com%2F563&tbnid=lixtlw8iPmfL_M&vet=12ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyg9egUIARCNAQ..i&docid=JUEA-qI5bqXoJM&w=668&h=469&q=%EC%9E%90%EB%B0%94%20%EC%8A%A4%EC%9C%99%20GUI&ved=2ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyg9egUIARCNAQ
+https://www.google.com/imgres?imgurl=https%3A%2F%2Fuk.mathworks.com%2Fmatlabcentral%2Fmlc-downloads%2Fdownloads%2Fsubmissions%2F15580%2Fversions%2F15%2Fscreenshot.gif&imgrefurl=https%3A%2F%2Fuk.mathworks.com%2Fmatlabcentral%2Ffileexchange%2F15580-using-java-swing-components-in-matlab&tbnid=xADU7K04exnHzM&vet=12ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyg-egUIARCPAQ..i&docid=WVyjfUycNXWCyM&w=521&h=287&q=%EC%9E%90%EB%B0%94%20%EC%8A%A4%EC%9C%99%20GUI&ved=2ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyg-egUIARCPAQ
+https://www.google.com/imgres?imgurl=https%3A%2F%2Fi.stack.imgur.com%2FpaHCW.png&imgrefurl=https%3A%2F%2Fstackoverrun.com%2Fko%2Fq%2F7137434&tbnid=8HePNLHUIQbukM&vet=12ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyg8egUIARCLAQ..i&docid=xNg6OkXL-hhAMM&w=775&h=426&itg=1&q=%EC%9E%90%EB%B0%94%20%EC%8A%A4%EC%9C%99%20GUI&ved=2ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyg8egUIARCLAQ
+https://www.google.com/imgres?imgurl=https%3A%2F%2Fi.stack.imgur.com%2FpaHCW.png&imgrefurl=https%3A%2F%2Fstackoverrun.com%2Fko%2Fq%2F7137434&tbnid=8HePNLHUIQbukM&vet=12ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyg8egUIARCLAQ..i&docid=xNg6OkXL-hhAMM&w=775&h=426&itg=1&q=%EC%9E%90%EB%B0%94%20%EC%8A%A4%EC%9C%99%20GUI&ved=2ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyg8egUIARCLAQ#h=426&imgdii=rlEXeXuE4iMhjM:&vet=12ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyg8egUIARCLAQ..i&w=775
+https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.guru99.com%2Fimages%2Fuploads%2F2012%2F06%2Fjava-swing-class-hierarchy.jpg&imgrefurl=https%3A%2F%2Fwww.guru99.com%2Fjava-swing-gui.html&tbnid=qNH5oEGO6gr79M&vet=12ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyg0egQIARB6..i&docid=XhQN9sWvt1cgGM&w=581&h=415&q=%EC%9E%90%EB%B0%94%20%EC%8A%A4%EC%9C%99%20GUI&ved=2ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyg0egQIARB6
+
+
+
+development - Creating custom java swing jbutton builder... what ...
+https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.devrant.com%2Fdevrant%2Frant%2Fr_1762271_GSt5D.jpg&imgrefurl=https%3A%2F%2Fdevrant.com%2Frants%2F1762271%2Fcreating-custom-java-swing-jbutton-builder-what-do-you-think-about-this-gui&tbnid=dY3R0vmGG-ZHPM&vet=12ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyg4egUIARCDAQ..i&docid=u_1VaLscOSVtrM&w=798&h=410&q=%EC%9E%90%EB%B0%94%20%EC%8A%A4%EC%9C%99%20GUI&ved=2ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMyg4egUIARCDAQ
+
+
+
+JAVA 23. About JAVA GUI - DetegiCE's GitHub
+https://detegice.github.io/chapter8-01-about-java-gui/
+https://www.google.com/imgres?imgurl=https%3A%2F%2Fuser-images.githubusercontent.com%2F26007107%2F60094255-81c39080-9786-11e9-982a-307e118d1c22.png&imgrefurl=https%3A%2F%2Fdetegice.github.io%2Fchapter8-01-about-java-gui%2F&tbnid=9YBkZGKw_u0MuM&vet=12ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMygtegQIARBl..i&docid=jGn-RSByhCPXfM&w=1164&h=708&q=%EC%9E%90%EB%B0%94%20%EC%8A%A4%EC%9C%99%20GUI&ved=2ahUKEwjrkdWJm93pAhXtQPUHHfEMALYQMygtegQIARBl
+
+
+
+

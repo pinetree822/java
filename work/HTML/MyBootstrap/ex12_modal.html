@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script></head>
+
+</head>
+<body>
+    <div class="container p-5">
+        <h1 class="mb-4">Modal Dialog</h1>
+        <!-- 버튼이나 링크를 클릭하면
+        모달 다이얼로그를 띄워보자.
+            [1] data-toggle="modal"로 지정한다.
+            [2] data-target="#아이디" 를 지정   -->
+        <button class="btn btn-outline-success"
+        data-toggle="modal" data-target="#myModal">Open Modal</button>    
+        <a data-toggle="modal" href="#myModal">Open Modal</a>
+
+        <!-- Modal Dialog---------------------------- -->
+        <div id="myModal" class="modal fade" role="dialog"  >
+                <!-- 아이디 지정 필수.  .modal fade -->
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form name="loginF" action="loginEnd.jsp" method="post">
+                        <div class="modal-header">
+                            <h4 class="text-center text-dark">Login</h4>
+                            <button data-dismiss="modal"
+                             class="close">&times;</button>
+                            <!-- 헤더 영역 -->
+                        </div>
+                        <div class="modal-body">
+                            <!-- body영역 -->
+                         <div class="row m-2">
+                         <label for="userid" class="col-md-3">아이디</label>   
+                         <div class="col-md-9">
+                            <input type="text" name="userid" id="userid"
+                            placeholder="User ID" class="form-control">
+                         </div>
+                        </div>
+                        <div class="row m-2">
+                            <label for="pwd"" class="col-md-3">비밀번호</label>   
+                            <div class="col-md-9">
+                               <input type="password" name="pwd" id="pwd"
+                               placeholder="Password" class="form-control">
+                            </div>
+                           </div>                        
+                        </div>
+                        <div class="modal-footer">
+                            <!-- footer영역 -->
+                            <button type="submit" class="btn btn-primary">Login</button>
+                            <button data-dismiss="modal" class="btn btn-danger">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- ---------------------------------------- -->
+    </div>
+</body>
+</html>
+
+

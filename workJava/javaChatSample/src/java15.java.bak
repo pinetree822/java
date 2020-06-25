@@ -1,0 +1,208 @@
+/*
+
+
+http://codereview.stackexchange.com/questions/71473/multi-threaded-tcp-server
+
+
+Multi threaded TCP server
+
+I wrote this just for fun, to hone my exception handling skills. 
+I want to know what I can do better in terms of exception handling (and otherwise) in the below code
+
+Server
+
+
+*/
+
+
+
+
+
+
+
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.concurrent.LinkedBlockingQueue;
+
+/**
+ * A stateless server process that executes <code>Command</code>s sent to it via
+ * clients over TCP. Each incoming TCP client connection is process by one of
+ * two <code>Worker</code> threads. The main thread accepts connections and puts
+ * them into a blocking queue which are then picked up by a free worker.
+ * 
+ * The worker then reads serialized <code>Command</code> objects and executes
+ * them till the client keeps sending them.
+ * 
+ * @author Parth
+ * 
+ */
+public class CommandProcessor {
+
+    private ServerSocket serverSock;
+
+    public static void main(String[] args) throws Exception {
+        CommandProcessor processor = new CommandProcessor();
+        processor.start();
+    }
+
+    /**
+     * Open the server socket and start worker threads.
+     * 
+     * @throws Exception
+     */
+    private void start() throws Exception {
+        LinkedBlockingQueue<Socket> queue = new LinkedBlockingQueue<>();
+        serverSock = new ServerSocket(13000);
+        // Can be replaced by a thread pool, not important right now.
+        new Thread(new Worker(queue), "Worker 1").start();
+        new Thread(new Worker(queue), "Worker 2").start();
+
+        while (true) {
+            queue.put(serverSock.accept());
+        }
+    }
+
+    /**
+     * A thread that pops a client connection to process and starts
+     * deserializing <code>Command</code> objects to execute till the client has
+     * more to send.
+     * 
+     * @author Parth
+     * 
+     */
+    private class Worker implements Runnable {
+        private LinkedBlockingQueue<Socket> socketQueue;
+
+        public Worker(LinkedBlockingQueue<Socket> queue) {
+            this.socketQueue = queue;
+        }
+
+        @Override
+        public void run() {
+            while (true) {
+                try {
+                    Socket clientSocket = socketQueue.take();
+                    System.out.println("Processing requests for " + clientSocket.getRemoteSocketAddress());
+                    ObjectInputStream oStream = new ObjectInputStream(clientSocket.getInputStream());
+                    while (true) {
+                        try {
+                            Command c = (Command) oStream.readObject();
+                            c.execute();
+                        } catch (EOFException eofe) {
+                            //This client is done, move on to next connection in the queue. 
+                            System.out.println("Finished reading");
+                            oStream.close();
+                            break;
+                        } catch (IOException ioe) {
+                            // I may no longer be able to read from the stream.
+                            // Best I move on the the next available client.
+                            oStream.close();
+                            ioe.printStackTrace();
+                            break;
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    clientSocket.close();
+                } catch (IOException e) {
+                    // Woops! Something went wrong with this Socket. Continue
+                    // with the next
+                    // available one.
+                    e.printStackTrace();
+                } catch (InterruptedException ie) {
+                    return;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Client:
+
+
+
+
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+
+
+public class CommandSender {
+
+    public static void main(String[] args) throws Exception {
+        for(int i = 0; i < 20; i++)
+            new Thread(new Sender()).start();
+    }
+
+    private static class Sender implements Runnable {
+
+        @Override
+        public void run() {
+            try {
+                Socket socket = new Socket("localhost", 13000);
+                ObjectOutputStream oStream = new ObjectOutputStream(socket.getOutputStream());
+                for(int i = 0; i < 10; i++) {
+                    oStream.writeObject(new SimpleCommand(Integer.toString(i)));
+                }
+                oStream.writeObject(new BadCommand());
+                socket.close();
+            } catch(Exception e) {
+                System.out.println("Error sending data. " + e);
+                return;
+            }
+        }
+    }
+}
+
+
+
+
+The Command interface (There are concrete implementations but including them here will offer no new insight)
+
+
+
+import java.io.Serializable;
+
+
+public interface Command extends Serializable {
+
+    public void execute() throws Exception;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

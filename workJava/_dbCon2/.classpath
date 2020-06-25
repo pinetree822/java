@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="teamoneproject/src"/>
+	<classpathentry kind="lib" path="teamoneproject/lib/mysql-connector-java-5.1.5-bin.jar"/>
+	<classpathentry kind="lib" path="teamoneproject/lib/ojdbc6.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="teamoneproject/bin"/>
+</classpath>

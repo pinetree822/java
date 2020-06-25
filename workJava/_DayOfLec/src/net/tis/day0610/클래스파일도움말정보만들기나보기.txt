@@ -1,0 +1,23 @@
+
+
+
+
+>> 시스템함수 등록 정보 보기
+
+Scanner scn = new Scanner(System.in);
+
+
+1. Scanner 란 단어 위에서 우측버튼<Open Declaration, Open Implementation> 선택 클릭
+해당 소스도움말 정보가 바로 안뜨면 설정을 해준다
+
+2. external정보에서 >> C:\Program Files\Java\jdk1.8.0_251\src.zip 선택
+3. 이후 우측버튼 > 선택 클릭 > 해당 클래스정보가 들어있는 파일에 연결한다
+
+
+
+
+
+
+
+
+ 

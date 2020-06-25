@@ -1,0 +1,62 @@
+import java.io.*;
+
+
+
+public class FileCopy {
+
+	public static void main(String[] args)				// FiewCopy 자동실행 함수
+	{
+		//현재 OS 환경변수
+		//System.out.println(System.getenv());
+
+		
+		try {
+			String currDir = System.getProperty("user.dir");						// 현재 디렉토리를 'Current Working Directory (현재 작업중인 디렉토리)'
+			//String filename = currDir + "./src/AppletEx1_1.java";			// 현재 실행되는 클래스의 절대경로 구하기
+
+			String srcFile = currDir + "/src/FileCopy.java";
+			String bakFile = currDir + "/src/FileCopy.bak";
+			FileInputStream fis = new FileInputStream(srcFile);
+			FileOutputStream fos = new FileOutputStream(bakFile);
+			//FileInputStream fis = new FileInputStream(args[0]);
+			//FileOutputStream fos = new FileOutputStream(args[1]);
+			
+			int data = 0;
+			while( (data=fis.read()) != -1 )	// 파일의 끝(-1)이 오기전까지 1byte 씩 읽어서  data(정수형으로)에 저장
+			{
+				fos.write(data);					// 정수형 1byte // void write(int b);
+			}			
+			fis.close();
+			fos.close();
+			
+			System.out.println( srcFile + " 파일에서 => " );
+			System.out.println( bakFile + " 파일로 복사가 되었습니다." );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}// public static void main(String[] args)
+	
+}//public class FileCopy
+
+
+/*
+
+	E:\java\_lecture\study\test_home\eclipse_home_java_workspace\test1/src/FileCopy.java 파일에서 => 
+	E:\java\_lecture\study\test_home\eclipse_home_java_workspace\test1/src/FileCopy.bak 파일로 복사가 되었습니다.
+
+ 
+	//String currDir = FileViewer.class.getResource(".").getPath();		// 현재 실행되는 클래스의 절대경로 구하기
+	//String filename = currDir + "../src/AppletEx1_1.java";			// 현재 실행되는 클래스의 절대경로 구하기
+	// System.out.println(currDir);											// /E:/java/_lecture/study/test_home/eclipse_home_java_workspace/test1/bin/		
+
+	String currDir = System.getProperty("user.dir");						// 현재 디렉토리를 'Current Working Directory (현재 작업중인 디렉토리)'
+	String filename = currDir + "./src/AppletEx1_1.java";				// 현재 실행되는 클래스의 절대경로 구하기
+
+*/
+
+
+
+
+

@@ -1,0 +1,577 @@
+::::::::::::::::::::::::::::: EcmaScript = ES6
+(European Computer Manufactures Association)
+ <script>
+    jQuery쓰는형식 패턴
+    jQuery(document).ready( function() { code } ); 
+    jQuery( function() { code } ); 
+    $( function() { code } ); 
+ </script>
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+   <link rel="stylesheet" href="/resources/demos/style.css">
+   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <link rel="stylesheet" href="/resources/demos/style.css">
+     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        function process(){
+            alert("버튼1 금요일");
+        }
+
+        $(document).ready(function(){
+
+            $("#btn2").click(function(){
+                alert("버튼2 토요일");
+            });
+
+
+            $("#btn3").on('click',function(){
+                alert("버튼3 일요일");
+               $(this).off(); //버튼클릭기능이 없어짐=이벤트제거
+			   $(this).off('click'); //동일한효과
+            });
+
+            $("#btn4").click( function(){
+                alert("버튼4 sunday");
+                $(this).css({
+                    "color" : "red" ,
+                    "background-color" : "yellow",
+                    "font-size" : "34px" ,
+                    "height" : "120px" ,
+                    "border" : "3px solid  green"
+                });
+              //  $('#btn3').on();  //이벤트활성화안됨
+            });
+
+            $('#jsp').on('click', function(){
+                $(this).text("jsp area jQuery  3:30");
+                $(this).css({
+                    "color" : "red" ,
+                    "background-color" : "yellow",
+                    "font-size" : "34px" ,
+                    "height" : "120px" ,
+                    "border" : "3px solid  green"
+                });
+            });
+  
+          //참고  속성  text,css 연달아 기술가능
+		    $('#btn1').click(function(){
+                $('#result').text("버튼1 클릭 ").css({'color':'red', 'font-weight':'bold', 'font-size':'30px'});
+            });
+
+            $('#btn2').click(function(){
+                $('#result').text("버튼2 클릭 ").css({'color':'orange', 'font-weight':'bold', 'font-size':'30px'});
+            });
+
+        }); //end
+    </script>
+</head>
+<body>
+<input type="button" id="btn1" value="버튼1" onclick="process()">
+<input type="button" id="btn2" value="버튼2">
+<input type="button" id="btn3" value="버튼3">
+<input type="button" id="btn4" value="버튼4">
+<p></p>
+
+<div id="jsp">jsp</div>
+</body>
+
+
+focus/blur :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ <script>
+     $(function(){
+            $('input').focus(function(){
+                $(this).css('background-color','yellow');
+            });
+            $('input').blur(function(){
+                $(this).css('background-color','lightgray');
+            });
+        });
+    </script>
+    </head>
+    <body>
+    이름 : <input type="text" id="name" placeholder="이름을 입력하시오">
+
+show/hide :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+<script>
+        $().ready(function(){
+            $('#btn1').click(function(){
+                $('#img').show();
+            });
+            $('#btn2').click(function(){
+                $('#img').hide();
+            });
+        });
+    </script>
+    </head>
+    <body>
+    <button id="btn1">보이기</button>
+    <button id="btn2">숨기기</button><br><br>
+    <div>
+        <img src="image/dog.png" id="img">
+    </div>
+
+json:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   <script>
+        $(function(){
+            var emp={
+                "name":"강호동",
+                "age":"25",
+                "tel":"111-1111",
+                "address":"서울"
+            };
+
+            /* 형식)  객체명.key이름   or    객체명['key이름']  */
+            var msg="";
+            msg += "이름:" + emp.name +"<br>"
+                + "나이:" + emp.age +"<br>"
+                + "전화:" + emp['tel'] +"<br>"
+                + "주소:" + emp['address'] +"<br>"
+
+            $('#result').html(msg);
+        });
+    </script>
+    </head>
+    <body>
+    <h2>JSON표기법</h2>
+    <div id="result"></div>
+
+addClass/removeClass:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+  <style>
+        .btnColor{
+            background-color:yellow;
+        }
+    </style>
+
+    <script>
+      $(function(){
+		  $("button").mouseover(function(){
+			   $(this).addClass("btnColor");
+			 });
+
+			$("button").mouseout(function(){
+				$(this).removeClass("btnColor");
+			});
+
+			//mouseover/mouseout동일한원리
+            $('button').hover(function(){
+                $(this).addClass('btnColor');
+            },function(){
+                $(this).removeClass("btnColor");
+            });
+      });
+    </script>
+    </head>
+
+ <body>
+    <button>음악감상</button>
+    <button>영화보기</button>
+    <button>사진보기</button>
+    <button>종료하기</button><br><br>
+
+red/green addClass:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    <style>
+	.green{  color:green; font-size: 36pt;       }
+    .red{ color:red; font-size: 36pt;     }
+    </style>
+
+ <script>
+      $(function(){
+          	$("#btn1").click(function (){
+		        $('p').addClass("green");
+		        $('p').removeClass("red");
+	    });
+
+	    $("#btn2").click(function (){
+	    	$('p').addClass("red");
+	    	$('p').removeClass("green");
+	    });
+    });
+    </script>
+  </head>
+    <body>
+    <p>green,blue</p>
+    <button id="btn1">초록색</button>
+    <button id="btn2">빨간색</button>
+  </body>
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ <style>
+        #button	{margin:0; background:#eee; padding:10px; cursor:pointer;}
+        #info	{background:#000; overflow:hidden; padding:10px; margin:0;}
+        #info	p	{font-size:12px; color:#fff; }
+    </style>
+
+    <script>
+      $(function(){
+          $("#info").hide();
+             $("#button").click(function(){
+               $("#info").slideToggle();
+          });
+      });
+    </script></head>
+
+    <body>
+    <h1 id="button">button</h1>
+    <div id="info">
+        <p> button 클릭 on/off 토글기능 slideToggle </p>
+    </div>
+</body>
+
+textarea글자수 제한:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    <script>
+      $(function(){
+          $('textarea').keyup(function(){
+              var inputLength = $(this).val().length;
+              var remain = 30 - inputLength;
+
+              $('h1').html(remain);
+              if ( remain > 0) {
+                  $('h1').css('color','blue');
+              } else {
+                  $('h1').css('color','red');
+                  $(this).prop('readonly', true); //꼭 외워서활용
+              }
+          });
+      });
+    </script>
+    </head>
+    <body>
+    <div>
+        textarea 남은 글자수: <h1> 30 </h1>
+        <textarea cols="40" rows="3"></textarea>
+    </div>
+
+cb.checked:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+  <script>
+      $(function(){
+          $("#go").click(function(){
+              $("#result").text($('.cb:checked').length +"개를 선택함").css("color","blue");
+          });
+      });
+    </script>
+    </head>
+    <body>
+    <form name="form1">
+        <input type="checkbox" name="chk" value="1" class="cb">농구
+        <input type="checkbox" name="chk" value="2" class="cb">낚시
+        <input type="button" value="선택된 취미의 갯수?" id="go">
+    </form><br><br>
+
+    <div id="result"></div>
+
+filter적용:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+<script>
+	 $(function(){
+		//$("#empTable>tbody.contents>tr:odd").css({background:"lightgray"})
+		$("#empTable>tbody.contents>tr").filter(":even").css({background:"lightgray"});
+		//$("#empTable>tbody.contents>tr").filter(":nth-child(2n)").css({background:"lightgray"});
+		//td 중에 마지막 td 에 pink background를 적용하세요.
+		$("#empTable>tbody.contents td").filter(":last-child").css("background","pink");
+	});
+	</script>
+
+	<table  id="empTable"  width="600">
+		<tbody class="title">
+			<tr bgcolor="#9acd32">
+				<th>사번</th><th>이름</th><th>부서</th><th>급여</th><th>삭제</th>
+			</tr>
+		</tbody>
+		<tbody class="contents">
+			<tr>
+				<td>7777</td><td>SMITH</td><td>SALES</td><td>1200</td><td><a href="#">삭제</a></td>
+			</tr>
+			<tr>
+				<td>8888</td><td>CLOCK</td><td>SALES</td><td>100</td><td><a href="#">삭제</a></td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>
+sample3.txt:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+<script>
+      $(function(){
+          $('#btn1').click(function(){
+              $('#demo').load("sample3.txt #p1");
+          });
+          $('#btn2').click(function(){
+              $('#demo').load("sample3.txt #p2");
+          });
+      });
+    </script>
+    </head>
+    <body>
+    <p id="demo"></p>
+    <button type="button" id="btn1">테스트1</button>
+    <button type="button" id="btn2">테스트2</button>
+  </body>
+
+json2.txt :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+$(function(){
+          $('#btn').click(function(){
+              $.getJSON('json2.txt', function(data){
+                  $('#display').empty();
+
+                  //entry.id 또는 entry['id']로 표현
+                  var table="<table border='1' width='500'><tr><td>번호</td><td>아이디</td><td>비밀번호</td></tr>";
+                  $.each(data, function(index, entry){
+                      table +="<tr>";
+                      table +="<td>" + index + "</td>";
+                      table +="<td>" + entry.id + "</td>";
+                      table +="<td>" + entry.pw + "</td></tr>";
+                  });
+                  table+="</table>";
+                  $('#display').append(table);
+              });
+          });
+      });
+    </script>
+    </head>
+    <body>
+    <button id="btn"> 데이터 불러오기 json2.txt</button> <p>
+    <div id="display"></div>
+  </body>
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+1.  Ajax(Asynchronous Javascript + XML)의 개요
+   ① javascript에 의한 비동기적인(Asynchronous)통신으로 XML기반의 데이터를 클라이언트인 
+       웹 브라우저와 서버 사이에서 교환하는 방법이다.
+   ② 기존의 웹 방식과 달리 특별한 프로그램의 설치없이 사용자에게 즉각적인 반응과 풍부한 UI경험을 
+       제공하는 새로운 방식의 기술이다. 이 방식은 ActiveX와 같은 설치 없이 웹브라우저가 제공하는 
+       기본 기능만으로 구현된다
+3. XMLHttpRequest
+ ① Ajax에서 서버와 클라이언트간에 통신을 담당하는것으로 가장 중요한 객체이다.
+ ② 서버의 응답결과가 HTML이 아닌 XML 또는 단순 텍스트이다.
+ ③ 페이지 이동없이 결과가 해당 화면에서 바로 반영된다
+
+ onreadystatechange : 상태의 변경이 발생했을때 이벤트를 처리하기 위해 이벤트 핸들러를 기술한다
+                               일반적으로 이벤트 핸들러는 자바스크립트의 함수로 기술된다.
+ requestText : 문자열로 이루어진 서버의 응답을 받는다
+ status : 서버로부터 응답받는 HTTP상태코드로 숫자를 리턴한다
+           200 : 정상(ok)
+           404 : 요청한 페이지를 찾을수 없음(page not found)
+           500 : 서버에러(Internal Server Error)
+           (대표적으로 2xx는 성공을, 4xx는 클라이언트 오류, 5xx는 서버의 오류를 나타냄)
+ readyState : 요청객체의 상태를 리턴
+             0: uninitialized - open() 메서드가 아직 호출되지 않은상태
+             1: open - send() 메서드가 아직 호출되지 않은 상태
+             2: sent - send()메서드의 호출이 끝나서, 헤더와 status의 사용이 가능한 상태이며 로드완료
+             3: receiving - 일부 데이터를 받을수 있는상태로 처리 중
+             4: loaded - 모든 데이터를 받을수 있는 상태로 완료
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ajaxResult.js
+        function setName(param){
+		     var msg =   "당신의 이름은 <b>" + param + "</b>입니다.";
+	          return  msg;
+         }
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+win19getAjax.html
+
+ <script>
+      $(function(){
+          $.getScript("ajaxResult.js");
+
+          $('#submit').click(function(){
+              var sendData=setName($('.user').val());
+              $('#message').html(sendData);
+          });
+      });
+    </script>
+
+    </head>
+    <body>
+    <form>
+        <label>이름을 입력하시오</label>
+        <input type="text" name="username" class="user">
+        <input type="button" id="submit" value="입력">
+    </form><br><br>
+
+    <div id="message"></div>
+  </body>
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+xmlTest.xml 문서
+<?xml version="1.0" encoding="utf-8" ?>
+<testxml>
+	<name>자바스크립트</name>
+	<age>21</age>
+	<kind>web,app</kind>
+</testxml>
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+xmlTest2.html 문서  
+
+<script>
+window.onload = function () {     
+    var xhr = new XMLHttpRequest(); 
+    
+     xhr.onreadystatechange = function (event) {                
+     if (xhr.readyState == XMLHttpRequest.DONE) {   //XMLHttpRequest.DONE ==> 4 
+       if (xhr.status == 200) {       
+         var xml = xhr.responseXML;  
+         
+         var rootE = xml.getElementsByTagName('testxml');      
+         var output = '';
+                  
+         for(var i=1; i < rootE[0].childNodes.length; i+=2)
+           output += "<font>"+rootE[0].childNodes[i].firstChild.nodeValue+"</font><br>";
+           document.body.innerHTML += output;                            
+         }
+      }
+    };
+         
+    xhr.open('GET', 'xmlTest.xml', true);
+    xhr.send();
+  }; 
+</script>
+</head>
+<body>
+	<h2>[onreadystatechange 속성 사용 - XML응답]</h2>
+    <hr size="2" color="red">
+</body>
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+xmlTest2.html 문서  
+<script>
+window.onload = function () {     
+    var xhr = new XMLHttpRequest(); 
+    
+     xhr.onload = function(event) {                
+     if (xhr.readyState == XMLHttpRequest.DONE) {   
+       if (xhr.status == 200) {       
+         var xml = xhr.responseXML;  
+         var rootE = xml.getElementsByTagName('testxml');      
+         var output = '';
+                  
+         for(var i=1; i < rootE[0].childNodes.length; i+=2)    
+           output += "<font>"+rootE[0].childNodes[i].firstChild.nodeValue+"</font><br>";
+           document.body.innerHTML += output;                            
+         }
+      }
+    };
+         
+    xhr.open('GET', 'xmlTest.xml', true);
+    xhr.send();
+  }; 
+</script>
+</head>
+<body>
+	<h2>[onload 속성 사용 - XML응답]</h2>
+    <hr size="2" color="red">
+</body>
+</html>
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+data.xml 문서내용
+<?xml version="1.0" encoding="UTF-8" ?>
+<products>
+    <product>
+        <name>홍차</name>
+        <price>2000</price>
+    </product>
+
+    <product>
+        <name>커피</name>
+        <price>3000</price>
+    </product>
+
+    <product>
+        <name>녹차</name>
+        <price>1500</price>
+    </product>
+</products>
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ ajax3javascript.html
+ <body>
+
+<div id="demo">
+  Ajax = Asynchronous Javascript And XML <p></p>
+<button type="button" onclick="loadDoc()"> Change Content3 </button>
+</div>
+
+<script>
+  var  xhttp ; //javascript에서 변수선언을 let,const 권장
+  var msg="" ;
+  function loadDoc() {
+     xhttp = new XMLHttpRequest();
+     xhttp.onreadystatechange=display;
+     xhttp.open("GET", "data.xml", true);
+     xhttp.send();
+  }
+
+  function display() {
+    if (xhttp.readyState == 4) {
+      if (xhttp.status == 200) {
+        var xml = xhttp.responseXML;
+
+        //var names=xml.getElementsByTagName('name')[0].firstChild.nodeValue;
+        //var prices=xml.getElementsByTagName('price')[0].firstChild.nodeValue;
+        //alert(names + " " + prices );
+        for(var i=0; i<3; i++){
+          var name=xml.getElementsByTagName('name')[i].firstChild.nodeValue
+          var price=xml.getElementsByTagName('price')[i].firstChild.nodeValue;
+          msg +=name+ '  ' + price +'<br>';
+        }
+        document.getElementById("demo").innerHTML=msg;
+      }
+    }
+  }//end
+</script>
+
+</body>
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ajax_info.txt
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+Aenean commodo ligula eget dolor. Aenean massa. 
+1234567890
+Cum sociis natoque penatibus et magnis dis parturient montes,
+nascetur ridiculus mus. Donec quam felis, u
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+ajax1javascript.html
+
+<body>
+
+<div id="demo">
+  Ajax = Asynchronous Javascript And XML <p></p>
+<button type="button" onclick="loadDoc()"> Change Content 1 </button>
+</div>
+
+<script>
+  var xhttp ; //javascript에서 변수선언을 let,const 권장
+  function loadDoc() {
+      xhttp = new XMLHttpRequest();
+    //var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(event) {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("demo").innerHTML =
+        this.responseText;
+      }
+    };
+
+    //xhttp.onreadystatechange=display;
+    xhttp.open("GET", "ajax_info.txt", true);
+    xhttp.send();
+  }
+
+  function display() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      let data=xhttp.responseText;
+      document.getElementById("demo").innerHTML=data;
+    }
+  }//end
+</script>
+
+</body>
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

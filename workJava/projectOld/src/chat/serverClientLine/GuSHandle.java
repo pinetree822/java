@@ -84,7 +84,7 @@ public class GuSHandle extends Thread{
 					String text = br.readLine();// 입력된 버퍼에서 한라인 읽어서 text에 저장
 					
 					// 서버에 로그 알림
-					gServer.setMsg(text + ":> " + text + "\n");// gServer의 setMsg()에 텍스트를 전달
+					gServer.setMsg(nickname + ":> " + text + "\n");// gServer의 setMsg()에 텍스트를 전달
 					// 채팅창에 메세지 알림
 					broadcast(nickname + ":> " + text);// 클라이언트에 텍스트를 보낸다.
 					

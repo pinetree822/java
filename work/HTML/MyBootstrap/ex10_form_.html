@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script></head>
+
+</head>
+<body>
+   
+    <!-- 부트스트랩 폼 레이아웃
+        [1] Stacked Form (디폴트)
+        [2] Inline Form
+    -->
+<div class="container">
+    <h1>Stacked Form</h1>
+    <form action="signUpEnd.jsp" method="POST">
+        <div class="form-group">
+            <label for="name">이름</label>
+            <input type="text" name="name" id="name"
+             class="form-control"
+             placeholder="Name">
+        </div>
+        <div class="form-group">
+            <label for="userid">아이디</label>
+            <input type="text" name="userid"" id="userid"
+             class="form-control"
+             placeholder="User ID">
+        </div>
+        <button class="btn btn-primary">Submit</button>        
+    </form>
+    <hr>
+    <h1>Inline Form</h1>
+    <h3>form태그에 .form-inline을 지정한다.</h3>
+    <form class="form-inline" action="join.jsp">
+        <label for="email" class="mr-sm-3">이메일</label>
+        <input type="text" name="email" id="email"
+        placeholder="Email" class="form-control mr-sm-3">
+        <label for="pwd" class="mr-sm-3">비밀번호</label>
+            <!-- margin-right를 크기 2정도 -->
+        <input type="password" name="pwd" id="pwd"
+         placeholder="Password" class="form-control mr-sm-3">
+         <!--이메일 기억 체크박스 : bootstrap에서는 
+        checkbox를 label태그로 감싼다. -->
+        <div class="form-check mr-sm-3">
+            <label class="form-check-label">
+                <input type="checkbox"
+                 class="form-check-input">Remember Email
+            </label>
+        </div>
+
+        <button class="btn btn-info">Submit</button>        
+    </form>
+    <hr>
+    <h1>Form Row/Grid</h1>
+    <form>
+        <div class="row mt-5">
+            <label for="" class="col-md-2 text-right mr-sm-2">연락처</label>
+            <div class="col-md-2">
+            <input type="text" class="form-control" placeholder="HP1">
+            </div>
+            <div class="col-md-2">
+            <input type="text" class="form-control" placeholder="HP2">
+            </div>
+            <div class="col-md-2">
+            <input type="text" class="form-control" placeholder="HP3">
+            </div>
+       </div>
+    </form>
+</div>
+</body>
+</html>
+<!-- ex10_form.html -->

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script></head>
+
+
+</head>
+<body>
+    <div class="container">
+        <h1>Responsive 테이블 [.table table-responsive]</h1>
+        <p>폭이 992px 이하인 스크린일 때 수평 스크롤바가 추가되면서
+            테이블 전체를 볼 수 있도록 한다. 992px이상일 때는 별 차이가 없음
+            .table-responsive 클래스는 table태그를 감싸는 부모 컨테이너에 주어야 한다.
+        </p>
+        <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <td>Firstname</td>
+                <td>Lastname</td>
+                <td>Email</td>
+                <td>Firstname</td>
+                <td>Lastname</td>
+                <td>Email</td>
+            </tr>
+            <tr>
+                <td>Tom</td>
+                <td>Kim</td>
+                <td>tom@a.b.c</td>
+                <td>Firstname</td>
+                <td>Lastname</td>
+                <td>Email</td>
+            </tr>
+            <tr>
+                <td>Peter</td>
+                <td>Lee</td>
+                <td>peter@n.b.c</td>
+                <td>Firstname</td>
+                <td>Lastname</td>
+                <td>Email</td>
+            </tr>
+            <tr>
+                <td>Jhon</td>
+                <td>Lastname</td>
+                <td>Email</td>
+                <td>Firstname</td>
+                <td>Lastname</td>
+                <td>Email</td>
+            </tr>
+            <tr>
+                <td>Scott</td>
+                <td>Tiger</td>
+                <td>scott@a.b.c</td>
+                <td>Firstname</td>
+                <td>Lastname</td>
+                <td>Email</td>
+            </tr>
+        </table>
+        </div>
+
+        <hr>
+        <h1>Contextual Classes 테이블 [.table table-hover]</h1>
+        <table class="table table-hover">
+            <tr class="table-primary">
+                <td>Firstname</td>
+                <td>Lastname</td>
+                <td>Email</td>
+                <td>Firstname</td>
+                <td>Lastname</td>
+                <td>Email</td>
+            </tr>
+            <tr class="table-success">
+                <td>Tom</td>
+                <td>Kim</td>
+                <td>tom@a.b.c</td>
+                <td>Firstname</td>
+                <td>Lastname</td>
+                <td>Email</td>
+            </tr>
+            <tr class="table-dark">
+                <td>Peter</td>
+                <td>Lee</td>
+                <td>peter@n.b.c</td>
+                <td>Firstname</td>
+                <td>Lastname</td>
+                <td>Email</td>
+            </tr>
+            <tr class="table-danger">
+                <td>Jhon</td>
+                <td>Lastname</td>
+                <td>Email</td>
+                <td>Jhon</td>
+                <td>Lastname</td>
+                <td>Email</td>
+            </tr>
+            <tr class="table-warning">
+                <td>Scott</td>
+                <td>Tiger</td>
+                <td>scott@a.b.c</td>
+                <td>Firstname</td>
+                <td>Lastname</td>
+                <td>Email</td>
+            </tr>
+        </table>
+        <hr>
+        <h1>Dark Small 테이블 [.table table-dark table-striped table-sm]</h1>
+        <table class="table  table-dark table-striped table-hover table-sm">
+            <tr>
+                <td>Firstname</td>
+                <td>Lastname</td>
+                <td>Email</td>
+            </tr>
+            <tr>
+                <td>Tom</td>
+                <td>Kim</td>
+                <td>tom@a.b.c</td>
+            </tr>
+            <tr>
+                <td>Peter</td>
+                <td>Lee</td>
+                <td>peter@n.b.c</td>
+            </tr>
+            <tr>
+                <td>Jhon</td>
+                <td>Lastname</td>
+                <td>Email</td>
+            </tr>
+            <tr>
+                <td>Scott</td>
+                <td>Tiger</td>
+                <td>scott@a.b.c</td>
+            </tr>
+
+        </table>
+
+    </div>
+</body>
+</html>
+<!-- ex04_table.html -->

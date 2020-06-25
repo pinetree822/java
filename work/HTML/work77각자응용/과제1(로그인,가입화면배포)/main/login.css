@@ -1,0 +1,111 @@
+body, h1, input, p {
+	margin: 0;
+	padding: 0;
+	font-family: "ë§‘ì? ê³ ë”•", "?‹ì?";
+	font-size: 13px;
+}
+
+body {
+	border-top: 15px solid #FFE400;
+}
+
+table {
+	width: 350px;
+}
+
+#memberLogin {
+	border-top: 50px solid #000040;
+	padding-top: 50px;
+}
+
+#memberLogin h1 {
+	font-size: 50px;
+	color: #CCC;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#memberLogin legend {
+	display: none;
+}
+
+#memberLogin fieldset {
+	width: 330px;
+	border: 5px solid #CCC;
+	border-radius: 10px;
+	padding: 30px;
+	margin: 20px auto;
+}
+
+#memberId, #memberPWD {
+	width: 100%;
+	padding: 2px;
+	border: 1px solid #666;
+	text-align: left;
+}
+
+#idbox label {
+	font-size: 0.9em;
+	width: 60px;
+	float: left;
+	display: block;
+}
+
+#idbox {
+	float: left;
+	margin: 10px 10px;
+}
+
+#loginBtn {
+	display: block;
+	width: 100px;
+	height: 60px;
+	top: 10px;
+	margin-left: 10px;
+	border-style: none;
+	background: #110D7B;
+	border-radius: 10px;
+	color: white;
+}
+
+#Btn {
+	display: block;
+	float: left;
+	height: 30px;
+	position: relative;
+	padding: 5px 10px;
+	margin: 0px 3px;
+	top: 10px;
+	border-style: none;
+	background: #59585D;
+	border-radius: 5px;
+	color: white;
+}
+
+#btn1 {
+	clear: both;
+	text-align: center;
+	margin-left: -36px;
+}
+
+#btn2 {
+	text-align: center;
+	margin-top: 10px;
+	margin-left: 40px;
+}
+
+#btn2 input {
+	padding: 5px 10px;
+	border-style: none;
+	background: #666;
+	color: white;
+	border-radius: 5px;
+}
+
+#submit1 input {
+	padding: 5px 10px;
+	border-style: none;
+	background: #000040;
+	color: white;
+	border-radius: 5px;
+}

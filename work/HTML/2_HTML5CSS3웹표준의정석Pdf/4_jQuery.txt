@@ -1,0 +1,104 @@
+참고사이트 : www.w3schools.com , 생활코딩, 워드프레스 테마
+          www.tutorialspoint.com/index
+============================================================
+[1] jQuery란?
+HTML 속 클라이언트 사이드 스크립트 언어(CSS)를 단순화 하도록 설계된 브라우저 호환성이 
+있는 자바스크립트 라이브러리이다.
+존 레식에 의해, 2006년 뉴욕 시 바캠프(Barcamp NYC)에서 공식으로 소개되었다.
+jQuery는 오늘날 가장 인기있는 자바스크립트 라이브러리중 하나다.
+
+[2] 다운로드
+ (1) http://jquery.com/download/ 에서  jquery-3.2.1.min.js를 다운 받는다.
+ (2) 프로젝트는 Dynamic Web Project로 하고
+      WebContent폴더에 jquery-3.2.1.min.js를 복사한다
+ (3) 이클립스에서 <script src="jquery-3.2.1.min.js"></script>를 추가한다
+
+[3] 다운로드없이 사용(CDN :Content Delivery Network)
+     <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
+
+[4] jQuery개요
+-DOM과 관련된 처리를 쉽게구현
+-일관된 이벤트 연결을 쉽게구현
+-시각적 효과를 쉽게구현
+-Ajax애플리케이션을 쉽게 개발
+
+[5] jQuery(document).ready()
+1) document객체의 ready이벤트연결
+    [형식]
+        $(document).ready(function() {
+    
+        });
+2) window객체의 load이벤트연결
+    [형식]
+        window.onload = function() {
+
+       };
+3) 간단한형식
+   $(function(){
+
+     });
+   
+[6] jQuery Ajax함수
+
+(1) 기본함수
+형식) $.ajax({옵션속성:값});   
+
+예) 
+$.ajax({
+   type:'POST',
+   url:url,
+   data:data,   -- json도 사용가능  
+   success:success,
+   dataType:datatype
+});
+
+※ 자주사용하는 속성
+url:문자열 - 요청url 설정 ,데이터를 보내고자하는 주소   ex)  <form action="">
+type:문자열 - GET/POST설정
+data:객체,문자열 - 요청 매개변수 설정   ex) <input type="text"  name="irum">
+dataType : 서버에서 내려온 data형식    ex) default : xml, json, script, text, html
+success:함수 - 성공시 호출할 함수 설정
+async:불리언 - 동기/비동기 설정
+error:함수 - 실패시 호출할 함수 설정
+
+(2)간편형 함수
+$.get(); - get방식으로 Ajax를 실행        
+    (형식)  $.get(url, [data] ,[callback])
+
+$.post(); - post방식으로 Ajax를 실행     
+    (형식)  $.post(url, [data], [callback], [type])
+
+$.getJSON(); - get방식 실행후 JSON데이터를 가져온다  
+    (형식) $.getJSON (url, [data], [callback])
+      url : 호출할 파일(경로)
+      data : url에 보낼  데이타     ex)  id값,  password값
+      callback : 처리 결과를 담당할 함수
+
+$.getScript(); - get방식 실행후 Script데이터를 가져온다
+$(select).load(); - Ajax실행 후 선택자에 문자열을 추가한다 
+
+★한글처리
+$("#formId").serialize().replace(/%/g,'%25');
+URLDecoder.decode( request.getParameter(param), "UTF-8");
+
+[7] jQuery Mobile Web
+https://codiqa.com/demo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

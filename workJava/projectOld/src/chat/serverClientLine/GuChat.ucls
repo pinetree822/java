@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="chat.serverClientLine.GuSHandle" project="projectOld" 
     file="/projectOld/src/chat/serverClientLine/GuSHandle.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="395" y="117"/>    
+    <position height="-1" width="-1" x="180" y="369"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,16 +21,7 @@
   </class>  
   <class id="3" language="java" name="chat.serverClientLine.GuClient" project="projectOld" 
     file="/projectOld/src/chat/serverClientLine/GuClient.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="204" y="456"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="4" language="java" name="chat.serverClientLine.GuCHandle" project="projectOld" 
-    file="/projectOld/src/chat/serverClientLine/GuCHandle.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="395" y="373"/>    
+    <position height="-1" width="-1" x="438" y="345"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
