@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Vector;
@@ -27,6 +26,11 @@ public class GuServer extends Frame implements ActionListener {
 	
 
 	
+<<<<<<< HEAD
+=======
+
+	
+>>>>>>> a3935df8f0679e93c223de3bd7ed88853c3f940e
 	// txt_list 서버현황을 업데이트 시키는 기능
 	public void setMsg(String msg) {
 		txt_list.append(msg);
@@ -54,10 +58,8 @@ public class GuServer extends Frame implements ActionListener {
 			while(true) {
 				
 				Socket sock = ss.accept();// 소켓연결자 초기화및 연결관리 객체(sock)
-				String ipAddr = sock.getInetAddress().toString();// 소켓이 열리고 연결되면 ip정보를 반환 > 문자열반환
+				String ipAddr = sock.getInetAddress().getHostAddress();// 소켓이 열리고 연결되면 ip정보를 반환 > 문자열반환
 				txt_list.append(ipAddr);// 서버의 텍스트박스에 ipAddr정보를 입력
-//				String ipAddr = sock.getInetAddress().getHostAddress();// 소켓이 열리고 연결되면 ip정보를 반환 > 문자열반환
-//				txt_list.append(ipAddr);// 서버의 텍스트박스에 ipAddr정보를 입력
 				
 				// 통신 핸들러 쓰레드 사용 시작///////////////////////
 				GuSHandle ch= new GuSHandle(this, sock);// 핸들러 객체에 구현된 쓰레드의 (GuServer및 소켓<sock>)전달
