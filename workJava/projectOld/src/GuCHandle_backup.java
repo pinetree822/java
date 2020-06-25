@@ -1,4 +1,4 @@
-package chat.serverClientLine;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,8 +10,10 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Vector;
 
-// 쓰레드 구현 - 서버에서 사용
-public class GuSHandle extends Thread{
+import chat.serverClientLine.GuServer;
+
+// 쓰레드 구현 - 클라이언트에서 사용
+public class GuCHandle_backup extends Thread{
 
 	GuServer gServer = null;	// GuServer 객체 - 서버 관리
 	Socket sock = null;			// Socket 객체 - 통신연결 관리
@@ -19,7 +21,8 @@ public class GuSHandle extends Thread{
 	BufferedReader br = null;	// InputStreamReader로 받은 데이타를 BufferedReader로 읽어서 처리
 	
 	
-	// 함수기능 - 모든 접속자에게 서버메세지를 보내준다.
+	// 함수기능 - 클라이언트에서 메세지를 보낸다.
+	// 서버에 일반말,귓속말 전송<이모티콘,종료>메세지
 	private void broadcast(String sMsg) {
 		// 배열 - 채팅참여자 목록 가상 저장소 - 서버객체마다 전체 공유
 		int userCnt = gServer.user.size();// 서버에 저장된 Vector배열 가상메모리 사용 - 사용자 저장
@@ -27,7 +30,7 @@ public class GuSHandle extends Thread{
 		//**********// 연결종료된 사용자에 해당하는 벡터메모리 삭제
 		for(int i=0; i<userCnt; i++) {
 			// 서버에 저장된  Vector메모리인 user변수배열에 각각 클라이언트연결자 객체에서 출력한다.
-			GuSHandle ghandle = (GuSHandle) gServer.user.elementAt(i); 
+			GuCHandle_backup ghandle = (GuCHandle_backup) gServer.user.elementAt(i); 
 			ghandle.pw.println(sMsg);
 			ghandle.pw.flush();// 메세지외 그외 문자들을 모두 출력
 		}// for
@@ -38,7 +41,7 @@ public class GuSHandle extends Thread{
 	
 	// 함수기능 - GuSHandle 선언및 초기화 : 통신 제어 관련 관리자(서버 객체, 통신소켓관리자 객체)
 	// 객체(서버, 통신소켓관리자)를  GuSHandle객체 쓰레드 에 저장한다.
-	public GuSHandle(GuServer gServer, Socket sock) {
+	public GuCHandle_backup(GuServer gServer, Socket sock) {
 		this.gServer = gServer;	// 서버 저장
 		this.sock = sock;		// 통신소켓관리자 저장
 		
@@ -84,11 +87,7 @@ public class GuSHandle extends Thread{
 					String text = br.readLine();// 입력된 버퍼에서 한라인 읽어서 text에 저장
 					
 					// 서버에 로그 알림
-<<<<<<< HEAD
-					gServer.setMsg(nickname + ":> " + text + "\n");// gServer의 setMsg()에 텍스트를 전달
-=======
 					gServer.setMsg(text + ":> " + text + "\n");// gServer의 setMsg()에 텍스트를 전달
->>>>>>> a3935df8f0679e93c223de3bd7ed88853c3f940e
 					// 채팅창에 메세지 알림
 					broadcast(nickname + ":> " + text);// 클라이언트에 텍스트를 보낸다.
 					
