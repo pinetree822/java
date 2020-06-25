@@ -1,4 +1,4 @@
-package chatting;
+package chatting11;
 
 
 import java.awt.event.ActionEvent;
@@ -11,6 +11,7 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Arrays;
+import java.util.Enumeration;
 import java.util.Vector;
 import java.awt.*;
 import javax.swing.ImageIcon;
@@ -241,6 +242,38 @@ class ChatHandle extends Thread {// CHAPTER14 요고시 쓰레드
 		
 		// 채팅토큰 - 대화말 합치기 / 필터기능 : (전체메시지, 귓속말, 그룹메시지|| 욕 || 이모티콘 || ) 구분(생략) / 필터기능(생략)
 		tcpState = tokenMsg[0] +":::" +tokenMsg[1] +":::" +tokenMsg[2] +":::" +tokenMsg[3] +":::" +tokenMsg[4] +":::" +tokenMsg[5];
+
+		// 같은 아이디
+		/**대화명 중복 여부를 체크하는 메소드*/
+		boolean isDuplicateChatName(String chatName) {
+			//server.user.elements();
+			Vector<ChatHandle> user = server.user;
+			while(user.hasMoreElements()){
+				Enumeration<String> user = en.nextElement();
+//				if(user.chatName.equals(chatName)){
+//					return true;
+//				}
+			}//while-------------
+			return false;
+		}
+	  	//2. 유효성 체크
+    	if(id==null||chatName==null||gender==null||host==null
+    			||id.trim().isEmpty()||chatName.trim().isEmpty()
+    			||gender.trim().isEmpty()
+    			||host.trim().isEmpty())
+    	{
+    		showMsg("입력 박스에 값을 모두 입력하세요");
+    		tfId.requestFocus();
+    		return;
+    	}
+
+
+		
+		
+		
+		
+		
+		
 		server.setMsg(tcpState+"\n");						// 서버로그
 
 		

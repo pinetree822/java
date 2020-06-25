@@ -1,4 +1,4 @@
-package chatting;
+package chatting11;
 
 
 
@@ -66,7 +66,7 @@ public class ChatWindow extends JFrame implements ActionListener, Runnable {
 		setContentPane(contentPane);
 		Login_f.add(contentPane);
 
-		Grim panel = new Grim(new ImageIcon("./image/달.jpg").getImage());
+		Grim panel = new Grim(new ImageIcon("images/달.jpg").getImage());
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 
@@ -178,7 +178,7 @@ public class ChatWindow extends JFrame implements ActionListener, Runnable {
 		Exit_btn.addActionListener(this);
 		panel.add(Exit_btn);
 
-		Grim panel_1 = new Grim(new ImageIcon("./image/밤하늘.jpg").getImage());
+		Grim panel_1 = new Grim(new ImageIcon("images/밤하늘.jpg").getImage());
 		contentPane.add(panel_1, BorderLayout.CENTER);
 		panel_1.setLayout(null);
 
@@ -339,6 +339,34 @@ public class ChatWindow extends JFrame implements ActionListener, Runnable {
 
 		send_tf.setText("");
 		send_tf.requestFocus();
+		
+		/////////////////// 수정필요 : 대화 - 2020.06.24.11.13 ////////////////////////////////////////////////////
+		//choice.setSize(20, 35);
+		//choice.add("귓속말");
+		//choice.add("Apple");
+		//choice.add("아이디");
+				
+		//choice.add(textField.getText());
+		//choice.select(choice.getItemCount()-1);
+		//      
+		//String data = "선택한 값보기 : "
+		//+ choice.getItem(choice.getSelectedIndex())
+		//+ statusLabel.setText(data);
+		//      
+		//choice.getSelectedObjects();
+		//choice.getSelectedItem();
+		//choice.remove(choice.getSelectedIndex());
+		//choice.removeAll();      
+		//choice.addItem(item);
+		//panel.add(lblNewLabel);
+		//////////////////////////클라이언트 토큰 조합 ////////////////////////////////////
+		//TCP:::tokenMsg[0]:::tokenMsg[1]:::tokenMsg[2]:::tokenMsg[3]:::tokenMsg[4]:::tokenMsg[5]
+		//TCP:::stateChat:::id:::whisperId:::idList:::frofile:::chatContext
+		//TCP:::(상태:대화중/입장/퇴장)0,1,2:::(selfId)"",id:::(대상:전체,귓속말id)"",id:::아이디리스트:::프로필:::대화말내용
+		//String tcpState = "TCP:::" +"1" +":::" +id +":::" +"" +":::" +"id1,id2," +":::" +"" +":::" +"" ;
+		//////////////////////////클라이언트 토큰 조합 ////////////////////////////////////
+		
+		
 		System.out.println("choice.getSelectedItem() = " + choice.getSelectedItem());// 귓속말 선택된 아이디
 		
 		// 전체말과 귓속말
@@ -440,6 +468,27 @@ public class ChatWindow extends JFrame implements ActionListener, Runnable {
 ////////////////////////////수정:귓속말 리스트 출력 - 2020.6.24.9.42 //////////////////////////////////////////////////////////////////////////
 //
 //				귓속말 리스트 대상  참고 내역
+//
+//				JLabel lblNewLabel = new JLabel("\uC785\uB825 : ");// 입력
+//				Choice choice = new Choice();
+//				panel.add(lblNewLabel);
+//				panel.add(choice);
+//				choice.add("Apple");
+//				choice.add("아이디");
+				
+//				choice.add(textField.getText());
+//				choice.select(choice.getItemCount()-1);
+//				      
+//				String data = "선택한 값보기 : "
+//				+ choice.getItem(choice.getSelectedIndex())
+//				+ statusLabel.setText(data);
+//				      
+//				choice.getSelectedObjects();
+//				choice.getSelectedItem();//////////////////
+//				choice.remove(choice.getSelectedIndex());
+//				choice.removeAll();      
+//				choice.addItem(item);
+//				panel.add(lblNewLabel);
 				
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		        
@@ -532,55 +581,7 @@ class User {
 
 
 
-//JLabel lblNewLabel = new JLabel("\uC785\uB825 : ");// 입력
-//Choice choice = new Choice();
-//panel.add(lblNewLabel);
-//panel.add(choice);
-//choice.add("Apple");
-//choice.add("아이디");
 
-//choice.add(textField.getText());
-//choice.select(choice.getItemCount()-1);
-//      
-//String data = "선택한 값보기 : "
-//+ choice.getItem(choice.getSelectedIndex())
-//+ statusLabel.setText(data);
-//      
-//choice.getSelectedObjects();
-//choice.getSelectedItem();//////////////////
-//choice.remove(choice.getSelectedIndex());
-//choice.removeAll();      
-//choice.addItem(item);
-//panel.add(lblNewLabel);
-
-
-
-
-/////////////////// 수정필요 : 대화 - 2020.06.24.11.13 ////////////////////////////////////////////////////
-//choice.setSize(20, 35);
-//choice.add("귓속말");
-//choice.add("Apple");
-//choice.add("아이디");
-		
-//choice.add(textField.getText());
-//choice.select(choice.getItemCount()-1);
-//      
-//String data = "선택한 값보기 : "
-//+ choice.getItem(choice.getSelectedIndex())
-//+ statusLabel.setText(data);
-//      
-//choice.getSelectedObjects();
-//choice.getSelectedItem();
-//choice.remove(choice.getSelectedIndex());
-//choice.removeAll();      
-//choice.addItem(item);
-//panel.add(lblNewLabel);
-//////////////////////////클라이언트 토큰 조합 ////////////////////////////////////
-//TCP:::tokenMsg[0]:::tokenMsg[1]:::tokenMsg[2]:::tokenMsg[3]:::tokenMsg[4]:::tokenMsg[5]
-//TCP:::stateChat:::id:::whisperId:::idList:::frofile:::chatContext
-//TCP:::(상태:대화중/입장/퇴장)0,1,2:::(selfId)"",id:::(대상:전체,귓속말id)"",id:::아이디리스트:::프로필:::대화말내용
-//String tcpState = "TCP:::" +"1" +":::" +id +":::" +"" +":::" +"id1,id2," +":::" +"" +":::" +"" ;
-//////////////////////////클라이언트 토큰 조합 ////////////////////////////////////
 
 
 
